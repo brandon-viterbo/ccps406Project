@@ -1,0 +1,32 @@
+{
+    "enteringRoom": {
+        "successfulText": "{} entered {}.",
+        "unsuccessfulText": "{} can't enter {}. {} is still in {}.",
+        "messageInvalid": "There's no where {} to go."
+    },
+  
+    "singleAction": {
+        "successfulText": "{} {}.",
+        "unsuccessfulText": "{} can't {} now.",
+        "messageInvalid": "{} doesn't know how to {}."
+    },
+
+    "objAction": {
+        "successfulText": "{} {} the {}.",
+        "unsuccessfulText": "{} didn't {} the {}.",
+        "messageInvalid": "{} doesn't know how to {} the {}."
+    },
+
+  
+    "skillCheck": {
+        "successfulText": "{} has the {} for that.",
+        "unsuccessfulText": "{} doesn't have the {} for that.",
+        "messageInvalid": "NULL"
+    },
+  
+    "longDescription": {
+        "successfulText": "{} looks around {} and sees {}. From here {} can go {}.",
+        "unsuccessfulText": "{} can't see anything.",
+        "messageInvalid": "NULL"
+    }
+}
