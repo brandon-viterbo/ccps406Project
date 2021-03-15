@@ -1,0 +1,30 @@
+{
+   "0": {
+      "passability": [
+         0,
+         0,
+         1,
+         0
+      ],
+      "adjacentRooms": [
+         0,
+         0,
+         1,
+         0
+      ]
+   },
+   "1": {
+      "passability": [
+         1,
+         0,
+         0,
+         0
+      ],
+      "adjacentRooms": [
+         1,
+         0,
+         0,
+         0
+      ]
+   }
+}
