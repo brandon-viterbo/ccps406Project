@@ -1,8 +1,8 @@
 {
     "enteringRoom": {
         "successfulText": "{} entered {}.",
-        "unsuccessfulText": "{} can't enter {}. {} is still in {}.",
-        "messageInvalid": "There's no where {} to go."
+        "unsuccessfulText": "{} can't enter the area to the {}. {} is still in {}.",
+        "messageInvalid": "There's nowhere {} to go. {} is still in {}."
     },
   
     "singleAction": {

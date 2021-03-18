@@ -1,0 +1,61 @@
+{
+	"r000": {
+		"name": "Centre Room",
+		"adjRooms": {"N":"r001","S":"r002","E":"r003","W":"r004"}, 
+		"adjRoomOpen": {"N":true,"S":true,"E":true,"W":true},
+		"items": ["i000"],
+		"characters": ["c000"],
+		"playerVisited": true,
+		"entryCutscene": "It sure is boring around here!"
+	},
+
+	"r001": {
+		"name": "North Room",
+		"adjRooms": {"N":"NULL","S":"r000","E":"NULL","W":"NULL"}, 
+		"adjRoomOpen": {"N":false,"S":true,"E":false,"W":false},
+		"items": [],
+		"characters": [],
+		"playerVisited": false,
+		"entryCutscene": "It's pretty cold up North!"
+	},
+
+	"r002": {
+		"name": "South Room",
+		"adjRooms": {"N":"r000","S":"NULL","E":"NULL","W":"NULL"}, 
+		"adjRoomOpen": {"N":true,"S":false,"E":false,"W":false},
+		"items": [],
+		"characters": [],
+		"playerVisited": false,
+		"entryCutscene": "It's pretty hot down south!"
+	},
+
+	"r003": {
+		"name": "East Room",
+		"adjRooms": {"N":"NULL","S":"NULL","E":"NULL","W":"r000"}, 
+		"adjRoomOpen": {"N":false,"S":false,"E":false,"W":true},
+		"items": [],
+		"characters": [],
+		"playerVisited": false,
+		"entryCutscene": "I can see the sun rising here!"
+	},
+
+	"r004": {
+		"name": "West Room",
+		"adjRooms": {"N":"NULL","S":"NULL","E":"r000","W":"r005"}, 
+		"adjRoomOpen": {"N":false,"S":false,"E":true,"W":false},
+		"items": [],
+		"characters": [],
+		"playerVisited": false,
+		"entryCutscene": "I can see the sun setting here!"
+	},
+
+	"r005": {
+		"name": "Locked Room",
+		"adjRooms": {"N":"NULL","S":"NULL","E":"r000","W":"NULL"}, 
+		"adjRoomOpen": {"N":false,"S":false,"E":false,"W":false},
+		"items": [],
+		"characters": [],
+		"playerVisited": false,
+		"entryCutscene": "It's dusty in here!"
+	}
+}

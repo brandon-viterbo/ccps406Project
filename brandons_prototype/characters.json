@@ -1,5 +1,6 @@
 {
-    "Pix" : {
+    "c000" : {
+    	"name": "Pix",
     	"dialogue": {
     		"happy": "We did it!",
     		"concerned": "Watch out!",
@@ -8,7 +9,9 @@
     		"angry": "Darn!"
     	},
     	"strength": 10,
-    	"weight": 20
-
+    	"weight": 20,
+    	"inventory": ["NULL", "NULL", "NULL", "NULL", "NULL"],
+    	"wieldedItem": "NULL",
+    	"locationID": "r000"
 	}
 }

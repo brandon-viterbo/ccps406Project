@@ -1,108 +1,210 @@
 import json
 
 GAMEPLAY_MESSAGES_RAW = "gameplayMessages.json"
-CHARACTER_RAW = "characters.json"
+CHARACTERS_RAW = "characters.json"
+ROOMS_RAW = "rooms.json"
+ITEMS_RAW = "items.json"
 
+DIRECTIONS = ["N", "S", "E", "W"]
+
+HAPPY = "happy"
+CONCERNED = "concerned"
+IDLE = "idle"
+FOCUSED = "focused"
+ANGRY = "angry"
+CHARACTER_EMOTIONAL_STATES = [HAPPY, CONCERNED, IDLE, FOCUSED, ANGRY]
+
+NULL_TAG = "NULL"
 
 with open(GAMEPLAY_MESSAGES_RAW, "r") as readFile:
     gameplayMessages = json.load(readFile)
-    textEnterRoom = gameplayMessages["enteringRoom"]["successfulText"]
+    enteringRoomSuccessful = gameplayMessages["enteringRoom"]["successfulText"]
+    enteringRoomUnsuccessful = gameplayMessages["enteringRoom"]["unsuccessfulText"]
+    enteringRoomInvalid = gameplayMessages["enteringRoom"]["messageInvalid"]
     objActionSuccessful = gameplayMessages["objAction"]["successfulText"]
     objActionUnsuccessful = gameplayMessages["objAction"]["unsuccessfulText"]
+    objActionInvalid = gameplayMessages["objAction"]["messageInvalid"]
 
+with open(CHARACTERS_RAW, "r") as readFile:
+    allCharacterData = json.load(readFile)
+
+with open(ROOMS_RAW, "r") as readFile:
+    allRoomData = json.load(readFile)
+
+with open(ITEMS_RAW, "r") as readFile:
+    allItemData = json.load(readFile)
 
 
 class Character():
-    def __init__(self, name="", dialogue={}, strength=0, weight=0, 
-        inventory=1, wieldedItem=None, location=None):
-        """Integer "inventory" in arguments is the capactity of Character's
-        inventory. The actual inventory is an array with that number of
-        slots all initialized to None.
-        """
-        self.name = name
-        self.dialogue = dialogue
-        self.strength = strength
-        self.weight = weight
-        self.inventory = [None] * inventory
-        self.wieldedItem = None
-        self.location = location
+    _registry = {}
+
+    def __init__(self, charID):
+        self._registry[charID] = self
+        self.charID = charID
+        thisCharacterData = allCharacterData[charID]
+
+        self.name = thisCharacterData["name"]
+        self.dialogue = thisCharacterData["dialogue"]
+        self.strength = thisCharacterData["strength"]
+        self.weight = thisCharacterData["weight"]
+        self.inventory = thisCharacterData["inventory"]
+        self.wieldedItem = thisCharacterData["wieldedItem"]
+        self.locationID = thisCharacterData["locationID"]
+        self.locationObject = Room._registry[self.locationID]
+
 
     def take(self, item):
-        """Type: objAction"""
+        """Action Type: objAction"""
         verb = "took"
         count = 0
+
+        if item.itemID not in self.locationObject.items:
+            print(objActionInvalid.format(self.name, verb, item.name))
+
         for i in self.inventory:
-            if i == None:
-                self.inventory[count] = item
+            if i == NULL_TAG:
+                self.inventory[count] = item.itemID
                 print(objActionSuccessful.format(self.name, verb, item.name))
+                self.locationObject.items.remove(item.itemID)
                 return
             count += 1
         print(objActionUnsuccessful.format(self.name, verb, item.name))
+
 
     def drop(self, item):
         """Type: objAction"""
         verb = "dropped"
         count = 0
         for i in self.inventory:
-            if i != None:
-                if i.name == item.name:
+            if i != NULL_TAG:
+                if i == item.itemID:
                     print(objActionSuccessful.format(self.name, verb, 
                         item.name))
-                    self.inventory[count] = None
+                    self.inventory[count] = NULL_TAG
+                    self.locationObject.items.append(item.itemID)
                     return
             count += 1
-        print(objActionUnsuccessful.format(self.name, verb, item.name))            
+        print(objActionInvalid.format(self.name, verb, item.name))
+
+
+    def wield(self, item):
+        pass
+
+
+    def move(self, direction):
+        """Action Type: Entering Room"""
+        nextRoomID = self.locationObject.adjRooms[direction]
+        if nextRoomID == NULL_TAG:
+            print(enteringRoomInvalid.format(direction, self.name, 
+                self.locationObject.name))
+            return
+
+        nextRoomObject = Room._registry[nextRoomID]
+        if self.locationObject.adjRoomOpen[direction] == False:
+            print(enteringRoomUnsuccessful.format(self.name, direction, 
+                self.name, self.locationObject.name))
+            return
+
+        self.locationObject.characters.remove(self.charID)
+        self.locationObject = nextRoomObject
+        self.locationID = nextRoomID
+        self.locationObject.characters.append(self.charID)
+        print(enteringRoomSuccessful.format(self.name, self.locationObject.name))
+        if self.locationObject.playerVisited == False:
+            print(self.locationObject.entryCutscene)
+            self.locationObject.playerVisited = True
 
 
 
 class Item():
-    def __init__(self, name="", messages={}, weight=0):
-        self.name = name
-        self.messages = messages
-        self.weight = weight
+    _registry = {}
 
-    def __str__():
-    	print(self.name)
+    def __init__(self, itemID):
+        self._registry[itemID] = self
+        self.itemID = itemID
+        thisItemData = allItemData[itemID]
+
+        self.name = thisItemData["name"]
+        self.messages = thisItemData["messages"]
+        self.weight = thisItemData["weight"]
+        self.activated = thisItemData["activated"]
+
 
 
 class Room():
-    def __init__(self):
-        self.roomID = 0
-        self.roomPassable = [0,1,1,0]
-        self.adjRooms = [None,2,3,None]
-    def set_room_id(self,x):
-        self.roomID = x
+    _registry = {}
+
+    def __init__(self, roomID):
+        self._registry[roomID] = self
+        self.roomID = roomID
+        thisRoomData = allRoomData[roomID]
+
+        self.name = thisRoomData["name"]
+        self.adjRooms = thisRoomData["adjRooms"]
+        self.adjRoomOpen = thisRoomData["adjRoomOpen"]
+
+        # List of instances of Item class inside of self
+        self.items = thisRoomData["items"]
+        # List of instances of Character class inside of self
+        self.characters = thisRoomData["characters"]
+
+        self.playerVisited = thisRoomData["playerVisited"]
+        self.entryCutscene = thisRoomData["entryCutscene"]
+
+
+    def set_room_id(self, roomID):
+        self.roomID = roomID
     def get_room_id(self):
         return self.roomID
-    def changeRoom (self, direction):
-        if(direction == "N" and self.roomPassable[0]==1):
-            self.set_room_id(self.adjRooms[0])
-            retStr = (self.roomID)
-            return retStr
-        elif(direction == "E" and self.roomPassable[1]==1):
-            self.set_room_id(self.adjRooms[1])
-            retStr = (self.roomID)
-            return retStr
-        elif(direction == "S" and self.roomPassable[2]==1):
-            self.set_room_id(self.adjRooms[2])
-            retStr = (self.roomID)
-            return retStr
-        elif(direction == "W" and self.roomPassable[3]==1):
-            self.set_room_id(self.adjRooms[3])
-            retStr = (self.roomID)
-            return retStr
-        else:
-            retStr = ("Can't go in that direction!")
-            return retStr
 
-torch = Item(name="torch")
 
-pix = Character(name="Pix", dialogue={}, strength=0, weight=0, inventory=5,
-    wieldedItem=None, location=None)
 
-x=Room()
-print(x.get_room_id())
-print(x.changeRoom("N"))
-print(x.changeRoom("E"))
-print(x.changeRoom("S"))
-print(x.changeRoom("W"))
+centreRoom = Room("r000")
+northRoom = Room("r001")
+southRoom = Room("r002")
+eastRoom = Room("r003")
+westRoom = Room("r004")
+lockedRoom = Room("r005")
+
+torch = Item("i000")
+
+pix = Character("c000")
+
+
+"""Each statement below is followed by the expected output"""
+
+print(pix.locationObject.entryCutscene) # Entry cutscene
+print("Pix's inventory: {}".format(pix.inventory)) #Empty
+print("Items in current room: {}\n".format(pix.locationObject.items)) #Item id for torch
+
+pix.take(torch) # Pix takes torch
+print("Pix's inventory: {}".format(pix.inventory)) #Torch
+print("Items in current room: {}\n".format(pix.locationObject.items)) #Empty
+
+pix.drop(torch) # Pix drops torch
+print("Pix's inventory: {}".format(pix.inventory)) #Empty
+print("Items in current room: {}\n".format(pix.locationObject.items)) #Item id for torch
+
+pix.drop(torch) # Invalid item message
+print("Pix's inventory: {}".format(pix.inventory)) #Empty
+print("Items in current room: {}\n".format(pix.locationObject.items)) #Item id for torch
+
+pix.take(torch) # Pix takes torch
+print("Pix's inventory: {}".format(pix.inventory)) #Torch
+print("Items in current room: {}\n".format(pix.locationObject.items)) #Empty
+previousRoom = pix.locationObject
+
+pix.move("N") # "Pix entered North Room", followed by entry cutscene
+pix.move("N") # Nowhere north to go
+pix.drop(torch) # Pix dropped the torch
+print("Pix's inventory: {}".format(pix.inventory)) #Empty
+print("Items in current room: {}".format(pix.locationObject.items)) #Item ID for torch
+print("Items in previous room: {}\n".format(previousRoom.items)) #Empty, refer to lines 192-195
+
+pix.move("S") # Pix entered Centre Room
+pix.move("W") # "Pix entered West Room", followed by entry cutscene
+pix.move("W") # Can't enter the area to the W.
+pix.move("E") # Pix entered Centre Room
+pix.move("W") # "Pix entered West Room", NOT followed by entry cutscene
+pix.move("E") # Pix entered Centre Room
+pix.move("E") # Pix entered East Room, followed by entry cutscene
