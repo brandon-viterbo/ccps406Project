@@ -1,0 +1,97 @@
+{
+	"r000": {
+		"name": "Centre Room",
+		"adjRooms": {"N":"r001","S":"r002","E":"r003","W":"r004"}, 
+		"adjRoomOpen": {"N":true,"S":true,"E":true,"W":true},
+		"adjRoomKeys": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"},
+		"items": ["i000"],
+		"characters": ["c000"],
+		"playerVisited": true,
+		"entryCutscene": "It sure is boring around here!",
+    "itemUsed": "NULL"
+	},
+
+	"r001": {
+		"name": "North Room",
+		"adjRooms": {"N":"NULL","S":"r000","E":"NULL","W":"NULL"}, 
+		"adjRoomOpen": {"N":false,"S":true,"E":false,"W":false},
+		"adjRoomKeys": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"},
+		"items": [],
+		"characters": [],
+		"playerVisited": false,
+		"entryCutscene": "It's pretty cold up North!",
+    "itemUsed": "NULL"
+	},
+
+	"r002": {
+		"name": "South Room",
+		"adjRooms": {"N":"r000","S":"NULL","E":"NULL","W":"NULL"}, 
+		"adjRoomOpen": {"N":true,"S":false,"E":false,"W":false},
+		"adjRoomKeys": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"},
+		"items": [],
+		"characters": [],
+		"playerVisited": false,
+		"entryCutscene": "It's pretty hot down south!",
+    "itemUsed": "NULL"
+	},
+
+	"r003": {
+		"name": "East Room",
+		"adjRooms": {"N":"NULL","S":"NULL","E":"NULL","W":"r000"}, 
+		"adjRoomOpen": {"N":false,"S":false,"E":false,"W":true},
+		"adjRoomKeys": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"},
+		"items": [],
+		"characters": [],
+		"playerVisited": false,
+		"entryCutscene": "I can see the sun rising here!",
+    "itemUsed": "NULL"
+	},
+
+	"r004": {
+		"name": "West Room",
+		"adjRooms": {"N":"NULL","S":"NULL","E":"r000","W":"r005"}, 
+		"adjRoomOpen": {"N":false,"S":false,"E":true,"W":false},
+		"adjRoomKeys": {"N":"NULL","S":"NULL","E":"NULL","W":"i001"},
+		"items": ["i001"],
+		"characters": [],
+		"playerVisited": false,
+		"entryCutscene": "I can see the sun setting here!",
+    "itemUsed": "NULL"
+	},
+
+	"r005": {
+		"name": "Secret Room",
+		"adjRooms": {"N":"NULL","S":"NULL","E":"r004","W":"r006"}, 
+		"adjRoomOpen": {"N":false,"S":false,"E":true,"W":true},
+		"adjRoomKeys": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"},
+		"items": [],
+		"characters": [],
+		"playerVisited": false,
+		"entryCutscene": "It's dusty in here!",
+    "itemUsed": "NULL"
+	},
+
+  "r006": {
+		"name": "Bat Room",
+		"adjRooms": {"N":"NULL","S":"NULL","E":"r005","W":"r007"}, 
+		"adjRoomOpen": {"N":false,"S":false,"E":true,"W":false},
+		"adjRoomKeys": {"N":"NULL","S":"NULL","E":"NULL","W":"i000"},
+		"items": [],
+		"characters": [],
+		"playerVisited": false,
+		"entryCutscene": "There is a swarm of bats blocking the way west!",
+    "itemUsed": "The torch scared the bats away!"
+  },
+
+  "r007": {
+		"name": "Boulder Room",
+		"adjRooms": {"N":"NULL","S":"NULL","E":"r006","W":"NULL"}, 
+		"adjRoomOpen": {"N":false,"S":false,"E":true,"W":false},
+		"adjRoomKeys": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"},
+		"items": [],
+		"characters": [],
+		"playerVisited": false,
+		"entryCutscene": "This room will be a test for character attributes and party members (need Marine to push a boulder)",
+    "itemUsed": "NULL"
+  }
+}

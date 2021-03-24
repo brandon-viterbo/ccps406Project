@@ -1,0 +1,17 @@
+{
+    "c000" : {
+    	"name": "Pix",
+    	"dialogue": {
+    		"happy": "We did it!",
+    		"concerned": "Watch out!",
+    		"idle": "Shoulda brought a book.",
+    		"focused": "There's gotta be a way outta this.",
+    		"angry": "Darn!"
+    	},
+    	"strength": 10,
+    	"weight": 20,
+    	"inventory": ["NULL", "NULL", "NULL", "NULL", "NULL"],
+    	"wieldedItem": "NULL",
+    	"locationID": "r000"
+	}
+}
