@@ -8,7 +8,8 @@
 		"characters": ["c000"],
 		"playerVisited": true,
 		"entryCutscene": "It sure is boring around here!",
-    "itemUsed": "NULL"
+    "itemUsed": "NULL",
+    "skillRequirements": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"}
 	},
 
 	"r001": {
@@ -20,7 +21,8 @@
 		"characters": [],
 		"playerVisited": false,
 		"entryCutscene": "It's pretty cold up North!",
-    "itemUsed": "NULL"
+    "itemUsed": "NULL",
+    "skillRequirements": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"}
 	},
 
 	"r002": {
@@ -32,7 +34,8 @@
 		"characters": [],
 		"playerVisited": false,
 		"entryCutscene": "It's pretty hot down south!",
-    "itemUsed": "NULL"
+    "itemUsed": "NULL",
+    "skillRequirements": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"}
 	},
 
 	"r003": {
@@ -44,7 +47,8 @@
 		"characters": [],
 		"playerVisited": false,
 		"entryCutscene": "I can see the sun rising here!",
-    "itemUsed": "NULL"
+    "itemUsed": "NULL",
+    "skillRequirements": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"}
 	},
 
 	"r004": {
@@ -56,7 +60,8 @@
 		"characters": [],
 		"playerVisited": false,
 		"entryCutscene": "I can see the sun setting here!",
-    "itemUsed": "NULL"
+    "itemUsed": "NULL",
+    "skillRequirements": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"}
 	},
 
 	"r005": {
@@ -68,7 +73,8 @@
 		"characters": [],
 		"playerVisited": false,
 		"entryCutscene": "It's dusty in here!",
-    "itemUsed": "NULL"
+    "itemUsed": "NULL",
+    "skillRequirements": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"}
 	},
 
   "r006": {
@@ -80,18 +86,32 @@
 		"characters": [],
 		"playerVisited": false,
 		"entryCutscene": "There is a swarm of bats blocking the way west!",
-    "itemUsed": "The torch scared the bats away!"
+    "itemUsed": "The torch scared the bats away!",
+    "skillRequirements": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"}
   },
 
   "r007": {
 		"name": "Boulder Room",
+		"adjRooms": {"N":"NULL","S":"NULL","E":"r006","W":"r008"}, 
+		"adjRoomOpen": {"N":false,"S":false,"E":true,"W":true},
+		"adjRoomKeys": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"},
+		"items": [],
+		"characters": ["c001"],
+		"playerVisited": false,
+		"entryCutscene": "There is a big boulder blocking the exit to this room.",
+    "itemUsed": "NULL",
+    "skillRequirements": {"N":"NULL","S":"NULL","E":"NULL","W":{"strength":20,"weight":0}}
+  },
+  "r008": {
+		"name": "Final Room",
 		"adjRooms": {"N":"NULL","S":"NULL","E":"r006","W":"NULL"}, 
 		"adjRoomOpen": {"N":false,"S":false,"E":true,"W":false},
 		"adjRoomKeys": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"},
 		"items": [],
-		"characters": [],
+		"characters": ["c001"],
 		"playerVisited": false,
-		"entryCutscene": "This room will be a test for character attributes and party members (need Marine to push a boulder)",
-    "itemUsed": "NULL"
+		"entryCutscene": "Marine pushes the boulder with all her might to clear the exit! You are now in the final room!",
+    "itemUsed": "NULL",
+    "skillRequirements": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"}
   }
 }
