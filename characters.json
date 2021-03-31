@@ -11,6 +11,7 @@
     	"strength": 10,
     	"weight": 20,
     	"inventory": ["NULL", "NULL", "NULL", "NULL", "NULL"],
+      "party": ["NULL"],
     	"wieldedItem": "NULL",
     	"locationID": "r000"
 	},
@@ -26,6 +27,7 @@
         "strength": 30,
         "weight": 30,
         "inventory": ["NULL", "NULL", "NULL", "NULL", "NULL"],
+        "party": ["NULL"],
         "wieldedItem": "NULL",
         "locationID": "r007"
   }

@@ -56,6 +56,7 @@ class Character():
         self.wieldedItem = thisCharacterData["wieldedItem"]
         self.locationID = thisCharacterData["locationID"]
         self.locationObject = Room._registry[self.locationID]
+        self.party = thisCharacterData["party"]
 
 
     def take(self, item):
@@ -75,6 +76,21 @@ class Character():
                 return
             count += 1
         print(objActionUnsuccessful.format(self.name, verb, item.name))
+    
+    def recruit(self, charName):
+      count = 0
+      if charName.charID not in self.locationObject.characters:
+            print("That character can't join you right now.")
+            return 
+
+      for i in self.party:
+            if i == NULL_TAG:
+                self.party[count] = charName
+                charName.party[count] = self
+                print(charName.name + " joined the party!")
+                return
+            count += 1
+      print("That character can't join you right now.")
 
 
     def drop(self, item):
@@ -156,15 +172,18 @@ class Character():
                 self.name, self.locationObject.name))
             return
 
-        self.locationObject.characters.remove(self.charID)
+        self.locationObject.characters.remove(self.charID) 
+        if self.party[0] != NULL_TAG:
+          self.locationObject.characters.remove(self.party[0].charID)
         self.locationObject = nextRoomObject
         self.locationID = nextRoomID
         self.locationObject.characters.append(self.charID)
+        if self.party[0] != NULL_TAG:
+          self.locationObject.characters.append(self.party[0].charID)
         print(enteringRoomSuccessful.format(self.name, self.locationObject.name))
         if self.locationObject.playerVisited == False:
             print(self.locationObject.entryCutscene)
-            self.locationObject.playerVisited = True
-
+            self.locationObject.playerVisited = True  
         return
 
 
@@ -387,5 +406,10 @@ pix.talk(marine) #talk to marine
 pix.talk(pix) #invalid talking to self
 marine.emotionState("angry") #make marine angry
 pix.talk(marine) #angry dialogue
-pix.move("W") #pix's strength stat too low to exit west
-marine.move("W") #marine's strength stat is high enough
+pix.recruit(marine) #add marine to pix's party and vice versa
+print(pix.party)  
+print(marine.party)
+print (pix.locationObject.characters)
+pix.move("W") #pix doesn't have enough strength to move west
+marine.move("W")  #marine has enough strength to move west
+print (marine.locationObject.characters) #all characters in party moved west
