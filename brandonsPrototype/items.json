@@ -1,0 +1,32 @@
+{
+	"i000_torch" : {
+		"name": "torch",
+    "activateWord": "light",
+    "deactivateWord": "put out",
+		"messages": {
+			"roomItemDescription": "A wooden torch",
+    		"characterItemDescription": "It's feels lightweight. This can probably be lit.",
+    		"itemAlreadyActive": "The torch is already lit, you can't do anything else with it.",
+        "itemAlreadyDeactive": "There's no fire to put out.",
+    		"itemActivated": "A bright flame shines from the torch's head. It can be put out.",
+    		"itemDeactivated": "The torch's flame goes out."
+  		},
+  		"weight": 1,
+  		"activated": false
+	},
+
+	"i001_key" : {
+		"name": "key",
+    "activateWord": "NULL",
+    "deactivateWord": "NULL",
+		"messages": {
+			"roomItemDescription": "A key.",
+    		"characterItemDescription": "A key, we can use this to unlock a door.",
+    		"itemInvalid": "NULL",
+    		"itemActivated": "NULL",
+    		"itemDeactivated": "NULL"
+  		},
+  		"weight": 1,
+  		"activated": false
+	}
+}

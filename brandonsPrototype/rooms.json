@@ -1,0 +1,90 @@
+{
+	"r000": {
+		"name": "Centre Room",
+		"adjRooms": {"N":"r001","S":"r002","E":"r003","W":"r004"},
+		"adjRoomObstacles": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"},
+		"items": ["i000_torch"],
+		"characters": ["c000"],
+		"playerVisited": true,
+		"entryCutscene": "It sure is boring around here!"
+	},
+
+	"r001": {
+		"name": "North Room",
+		"adjRooms": {"N":"NULL","S":"r000","E":"NULL","W":"NULL"},
+		"adjRoomObstacles": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"},
+		"items": [],
+		"characters": [],
+		"playerVisited": false,
+		"entryCutscene": "It's pretty cold up North!"
+	},
+
+	"r002": {
+		"name": "South Room",
+		"adjRooms": {"N":"r000","S":"NULL","E":"NULL","W":"NULL"},
+		"adjRoomObstacles": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"},
+		"items": [],
+		"characters": [],
+		"playerVisited": false,
+		"entryCutscene": "It's pretty hot down south!"
+	},
+
+	"r003": {
+		"name": "East Room",
+		"adjRooms": {"N":"NULL","S":"NULL","E":"NULL","W":"r000"},
+		"adjRoomObstacles": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"},
+		"items": [],
+		"characters": [],
+		"playerVisited": false,
+		"entryCutscene": "I can see the sun rising here!"
+	},
+
+	"r004": {
+		"name": "West Room",
+		"adjRooms": {"N":"NULL","S":"NULL","E":"r000","W":"r005"},
+		"adjRoomObstacles": {"N":"NULL","S":"NULL","E":"NULL","W":"o000_door"},
+		"items": ["i001_key"],
+		"characters": [],
+		"playerVisited": false,
+		"entryCutscene": "I can see the sun setting here!"
+	},
+
+	"r005": {
+		"name": "Secret Room",
+		"adjRooms": {"N":"NULL","S":"NULL","E":"r004","W":"r006"},
+		"adjRoomObstacles": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"},
+		"items": [],
+		"characters": [],
+		"playerVisited": false,
+		"entryCutscene": "It's dusty in here!"
+	},
+
+  "r006": {
+		"name": "Bat Room",
+		"adjRooms": {"N":"NULL","S":"NULL","E":"r005","W":"r007"},
+		"adjRoomObstacles": {"N":"NULL","S":"NULL","E":"NULL","W":"o001_bats"},
+		"items": [],
+		"characters": [],
+		"playerVisited": false,
+		"entryCutscene": "There is a swarm of bats blocking the way west!"
+  },
+
+  "r007": {
+		"name": "Boulder Room",
+		"adjRooms": {"N":"NULL","S":"NULL","E":"r006","W":"r008"},
+		"adjRoomObstacles": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"},
+		"items": [],
+		"characters": ["c001"],
+		"playerVisited": false,
+		"entryCutscene": "There is a big boulder blocking the exit to this room."
+  },
+  "r008": {
+		"name": "Final Room",
+		"adjRooms": {"N":"NULL","S":"NULL","E":"r006","W":"NULL"},
+		"adjRoomObstacles": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"},
+		"items": [],
+		"characters": ["c001"],
+		"playerVisited": false,
+		"entryCutscene": "Marine pushes the boulder with all her might to clear the exit! You are now in the final room!"
+  }
+}

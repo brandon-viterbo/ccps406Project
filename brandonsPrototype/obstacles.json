@@ -1,0 +1,29 @@
+{
+	"o000_door": {
+		"name": "door",
+		"unblockKeyword": "unlock",
+		"key": "i001_key", 
+		"keyShouldBeActivated": false,
+		"strengthCheck": "NULL",
+		"sizeCheck": "NULL",
+		"messages": {
+			"blockedText": "A door blocks the way here. There might be a key around to unlock it.",
+			"unblockedText": "The door is unlocked, this way is open now!"
+		}
+	},
+
+	"o001_bats": {
+		"name": "bats",
+		"unblockKeyword": "scare",
+		"key": "i000_torch", 
+		"keyShouldBeActivated": true,
+		"strengthCheck": "NULL",
+		"sizeCheck": "NULL",
+		"messages": {
+			"blockedText": "The bats attack anyone that tries to pass through. Maybe fire can scare them away...",
+			"unblockedText": "Terrified of the fire, the bats flew away from the entrance!"
+		}
+	}
+
+
+}
