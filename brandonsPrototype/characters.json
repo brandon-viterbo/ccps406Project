@@ -1,5 +1,5 @@
 {
-    "c000" : {
+    "c000_pix" : {
     	"name": "Pix",
     	"dialogue": {
     		"happy": "We did it!",
@@ -15,7 +15,7 @@
     	"wieldedItem": "NULL",
     	"locationID": "r000"
 	},
-    "c001" : {
+    "c001_marine" : {
         "name": "Marine",
         "dialogue": {
           "happy": "We did it!",

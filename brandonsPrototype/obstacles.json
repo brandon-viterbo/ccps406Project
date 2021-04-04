@@ -4,8 +4,8 @@
 		"unblockKeyword": "unlock",
 		"key": "i001_key", 
 		"keyShouldBeActivated": false,
-		"strengthCheck": "NULL",
-		"sizeCheck": "NULL",
+		"strengthCheck": 0,
+		"sizeCheck": 0,
 		"messages": {
 			"blockedText": "A door blocks the way here. There might be a key around to unlock it.",
 			"unblockedText": "The door is unlocked, this way is open now!"
@@ -17,13 +17,25 @@
 		"unblockKeyword": "scare",
 		"key": "i000_torch", 
 		"keyShouldBeActivated": true,
-		"strengthCheck": "NULL",
-		"sizeCheck": "NULL",
+		"strengthCheck": 0,
+		"sizeCheck": 0,
 		"messages": {
 			"blockedText": "The bats attack anyone that tries to pass through. Maybe fire can scare them away...",
 			"unblockedText": "Terrified of the fire, the bats flew away from the entrance!"
 		}
-	}
+	},
 
+	"o002_boulder": {
+		"name": "boulder",
+		"unblockKeyword": "push",
+		"key": "NULL", 
+		"keyShouldBeActivated": false,
+		"strengthCheck": 20,
+		"sizeCheck": 0,
+		"messages": {
+			"blockedText": "A boulder is blocking that way, but a strong person can push it out of the way.",
+			"unblockedText": "The boulder rolled out of the way, this entrance is open now!"
+		}
+	}
 
 }

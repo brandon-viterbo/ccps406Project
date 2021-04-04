@@ -89,19 +89,27 @@ class Character():
     
 
     def recruit(self, charName):
-      count = 0
-      if charName.charID not in self.locationObject.characters:
+        if charName.charID not in self.locationObject.characters:
             print("That character can't join you right now.")
             return 
 
-      for i in self.party:
+        selfIndex = -1
+        charIndex = -1
+        count = 0
+        for i, j in zip(self.party, charName.party):
             if i == NULL_TAG:
-                self.party[count] = charName
-                charName.party[count] = self
-                print(charName.name + " joined the party!")
-                return
+                selfIndex = count
+            if j == NULL_TAG:
+                charIndex = count
             count += 1
-      print("That character can't join you right now.")
+
+        if (selfIndex >= 0) and (charIndex >= 0):
+            self.party[selfIndex] = charName.charID
+            charName.party[charIndex] = self.charID
+            print(charName.name + " joined the party!")
+            return
+
+        print("That character can't join you right now.")
 
 
     def drop(self, item):
@@ -197,8 +205,9 @@ class Character():
         self.locationID = nextRoomID
         self.locationObject.characters.append(self.charID)
 
-        for member in self.party:
-            if member != NULL_TAG:
+        for i in self.party:
+            if i != NULL_TAG:
+                member = Character._registry[i]
                 member.move(direction)
 
         print(enteringRoomSuccessful.format(self.name, self.locationObject.name))
@@ -212,11 +221,22 @@ class Character():
         if obstacle.obstacleID not in self.locationObject.adjRoomObstacles.values():
             print(singleAction.format(self.name, "do that"))
             return
+
+        if self.strength <= obstacle.strengthCheck:
+            print(skillCheckUnsuccessful.format(self.name, "strength"))
+            return
+        elif self.strength <= obstacle.sizeCheck:
+            print(skillCheckUnsuccessful.format(self.name, "size"))
+            return
+        elif (verb == obstacle.unblockKeyword) and (obstacle.key == NULL_TAG):
+            # If the obstacle only require a skill check to remove
+            print(obstacle.messages["unblockedText"])
+            self.locationObject.removeObstacle(obstacle)
+            return
+
         if (verb == obstacle.unblockKeyword
-        ) and (obstacle.key != NULL_TAG
-        ) and (obstacle.strengthCheck == NULL_TAG
-        ) and (obstacle.sizeCheck == NULL_TAG):
-            # If removing obstacle only requires key, no skill checks
+        ) and (obstacle.key != NULL_TAG):
+            # If removing obstacle also requires key
             if (self.wieldedItem == obstacle.key) and (
             not obstacle.keyShouldBeActivated):
                 print(obstacle.messages["unblockedText"])
@@ -228,7 +248,7 @@ class Character():
                 print(obstacle.messages["unblockedText"])
                 self.locationObject.removeObstacle(obstacle)
                 return
-        print(objActionUnsuccessful.format(self.name, verb, obstacle.name))
+        print(objActionInvalid.format(self.name, verb, obstacle.name))
     
     
     def activeCharacter(self, active):

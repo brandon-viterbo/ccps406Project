@@ -12,12 +12,13 @@ finalRoom = gameClasses.Room("r008")
 
 door = gameClasses.Obstacle("o000_door")
 bats = gameClasses.Obstacle("o001_bats")
+boulder = gameClasses.Obstacle("o002_boulder")
 
 torch = gameClasses.Item("i000_torch")
 key = gameClasses.Item("i001_key")
 
-pix = gameClasses.Character("c000")
-marine = gameClasses.Character("c001")
+pix = gameClasses.Character("c000_pix")
+marine = gameClasses.Character("c001_marine")
 
 
 pix.activeCharacter(1)
@@ -108,3 +109,20 @@ pix.removeObstacle("scare", bats)
 print("Obstacles in this room: ", pix.locationObject.adjRoomObstacles, "\n")
 
 pix.move("W")
+print("Obstacles in this room: ", pix.locationObject.adjRoomObstacles)
+print("Characters in this room: ", pix.locationObject.characters)
+pix.removeObstacle("push", boulder)
+pix.move("N")
+marine.removeObstacle("politely talk with", boulder)
+pix.move("N")
+marine.removeObstacle("push", boulder)
+pix.recruit(marine) #add marine to pix's party and vice versa
+print(pix.party)  
+print(marine.party)
+print("Obstacles in this room: ", pix.locationObject.adjRoomObstacles)
+print("Characters in this room: ", pix.locationObject.characters, "\n")
+
+pix.move("N")
+print("Characters in this room: ", pix.locationObject.characters)
+pix.move("S")
+print("Characters in this room: ", pix.locationObject.characters)

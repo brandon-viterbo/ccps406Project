@@ -4,7 +4,7 @@
 		"adjRooms": {"N":"r001","S":"r002","E":"r003","W":"r004"},
 		"adjRoomObstacles": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"},
 		"items": ["i000_torch"],
-		"characters": ["c000"],
+		"characters": ["c000_pix"],
 		"playerVisited": true,
 		"entryCutscene": "It sure is boring around here!"
 	},
@@ -66,25 +66,25 @@
 		"items": [],
 		"characters": [],
 		"playerVisited": false,
-		"entryCutscene": "There is a swarm of bats blocking the way west!"
+		"entryCutscene": "There is a swarm of bats blocking the way west!\n'Oh no, I'm scared of bats...' Pix says to themself."
   },
 
   "r007": {
 		"name": "Boulder Room",
-		"adjRooms": {"N":"NULL","S":"NULL","E":"r006","W":"r008"},
-		"adjRoomObstacles": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"},
+		"adjRooms": {"N":"r008","S":"NULL","E":"r006","W":"NULL"},
+		"adjRoomObstacles": {"N":"o002_boulder","S":"NULL","E":"NULL","W":"NULL"},
 		"items": [],
-		"characters": ["c001"],
+		"characters": ["c001_marine"],
 		"playerVisited": false,
-		"entryCutscene": "There is a big boulder blocking the exit to this room."
+		"entryCutscene": "There's a woman looking frustrated at a boulder. At the North side of the room. \n'I almost got it outta the way!' She notices Pix behind her. \n'Oh howdy! My name is Marine!'"
   },
   "r008": {
 		"name": "Final Room",
-		"adjRooms": {"N":"NULL","S":"NULL","E":"r006","W":"NULL"},
+		"adjRooms": {"N":"NULL","S":"r007","E":"NULL","W":"NULL"},
 		"adjRoomObstacles": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"},
 		"items": [],
-		"characters": ["c001"],
+		"characters": [],
 		"playerVisited": false,
-		"entryCutscene": "Marine pushes the boulder with all her might to clear the exit! You are now in the final room!"
+		"entryCutscene": "Pix feels really proud of themself. 'Looks like I'm at the end of the line!'"
   }
 }
