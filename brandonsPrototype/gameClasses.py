@@ -48,15 +48,15 @@ class Character():
     _registry = {}
     _names = {}
 
-    def __init__(self, charID):
-        self._registry[charID] = self
-        self.charID = charID
-        thisCharacterData = allCharacterData[charID]
+    def __init__(self, objID):
+        self._registry[objID] = self
+        self.objID = objID
+        thisCharacterData = allCharacterData[objID]
         self.playerCharacter = False
         self.emotionalState = "happy"
 
         self.name = thisCharacterData["name"]
-        self._names[self.name.upper()] = self.charID
+        self._names[self.name.upper()] = self.objID
         self.dialogue = thisCharacterData["dialogue"]
         self.strength = thisCharacterData["strength"]
         self.weight = thisCharacterData["weight"]
@@ -72,7 +72,7 @@ class Character():
         verb = "took"
         count = 0
 
-        if item.itemID not in self.locationObject.items:
+        if item.objID not in self.locationObject.items:
             print(objActionInvalid.format(self.name, verb, item.name))
             return
 
@@ -82,16 +82,16 @@ class Character():
 
         for i in self.inventory:
             if i == NULL_TAG:
-                self.inventory[count] = item.itemID
+                self.inventory[count] = item.objID
                 print(objActionSuccessful.format(self.name, verb, item.name))
-                self.locationObject.items.remove(item.itemID)
+                self.locationObject.items.remove(item.objID)
                 return
             count += 1
         print(objActionUnsuccessful.format(self.name, verb, item.name))
     
 
     def recruit(self, charName):
-        if charName.charID not in self.locationObject.characters:
+        if charName.objID not in self.locationObject.characters:
             print("That character can't join you right now.")
             return 
 
@@ -106,8 +106,8 @@ class Character():
             count += 1
 
         if (selfIndex >= 0) and (charIndex >= 0):
-            self.party[selfIndex] = charName.charID
-            charName.party[charIndex] = self.charID
+            self.party[selfIndex] = charName.objID
+            charName.party[charIndex] = self.objID
             print(charName.name + " joined the party!")
             return
 
@@ -118,18 +118,18 @@ class Character():
         """Type: objAction"""
         verb = "dropped"
         count = 0
-        if self.wieldedItem == item.itemID:
+        if self.wieldedItem == item.objID:
             self.wieldedItem = NULL_TAG
-            self.locationObject.items.append(item.itemID)
+            self.locationObject.items.append(item.objID)
             print(objActionSuccessful.format(self.name, verb, item.name))
             return
 
         for i in self.inventory:
-            if i == item.itemID:
+            if i == item.objID:
                 print(objActionSuccessful.format(self.name, verb, 
                     item.name))
                 self.inventory[count] = NULL_TAG
-                self.locationObject.items.append(item.itemID)
+                self.locationObject.items.append(item.objID)
                 return
             count += 1
         print(objActionInvalid.format(self.name, verb, item.name))
@@ -138,16 +138,16 @@ class Character():
 
     def wield(self, item):
         count = 0
-        if item.itemID == self.wieldedItem:
+        if item.objID == self.wieldedItem:
             print("{} is already wielding that.".format(self.name))
             return
         for i in self.inventory:
-            if i == item.itemID:
+            if i == item.objID:
                 if self.wieldedItem != NULL_TAG:
                     self.inventory[count] = self.wieldedItem
                 else:
                     self.inventory[count] = NULL_TAG
-                self.wieldedItem = item.itemID
+                self.wieldedItem = item.objID
                 print(objActionSuccessful.format(
                     self.name, "wielded", item.name)
                 )
@@ -158,8 +158,8 @@ class Character():
 
     def activate(self, verb, item):
         # This method can also deativate items.
-        if (item.itemID == self.wieldedItem):
-            wieldedItem = Item._registry[item.itemID]
+        if (item.objID == self.wieldedItem):
+            wieldedItem = Item._registry[item.objID]
             if wieldedItem.activateWord == NULL_TAG:
                 # If item can't be activated, return.
                 print(objActionInvalid.format(self.name, verb, wieldedItem.name))
@@ -187,25 +187,25 @@ class Character():
 
     def move(self, direction):
         """Action Type: Entering Room"""
-        nextRoomID = self.locationObject.adjRooms[direction]
-        if nextRoomID == NULL_TAG:
+        nextobjID = self.locationObject.adjRooms[direction]
+        if nextobjID == NULL_TAG:
             print(enteringRoomInvalid.format(direction, self.name, 
                 self.locationObject.name))
             return
 
-        nextRoomObject = Room._registry[nextRoomID]
-        obstacleID = self.locationObject.adjRoomObstacles[direction]
-        if obstacleID != NULL_TAG:
-            obstacle = Obstacle._registry[obstacleID]
+        nextRoomObject = Room._registry[nextobjID]
+        objID = self.locationObject.adjRoomObstacles[direction]
+        if objID != NULL_TAG:
+            obstacle = Obstacle._registry[objID]
             print(obstacle.messages["blockedText"])
             print(enteringRoomUnsuccessful.format(self.name, direction, 
                 self.name, self.locationObject.name))
             return
 
-        self.locationObject.characters.remove(self.charID)
+        self.locationObject.characters.remove(self.objID)
         self.locationObject = nextRoomObject
-        self.locationID = nextRoomID
-        self.locationObject.characters.append(self.charID)
+        self.locationID = nextobjID
+        self.locationObject.characters.append(self.objID)
 
         for i in self.party:
             if i != NULL_TAG:
@@ -220,7 +220,7 @@ class Character():
 
 
     def removeObstacle(self, verb, obstacle):
-        if obstacle.obstacleID not in self.locationObject.adjRoomObstacles.values():
+        if obstacle.objID not in self.locationObject.adjRoomObstacles.values():
             print(singleAction.format(self.name, "do that"))
             return
 
@@ -278,13 +278,13 @@ class Item():
     _registry = {}
     _names = {}
 
-    def __init__(self, itemID):
-        self._registry[itemID] = self
-        self.itemID = itemID
-        thisItemData = allItemData[itemID]
+    def __init__(self, objID):
+        self._registry[objID] = self
+        self.objID = objID
+        thisItemData = allItemData[objID]
 
         self.name = thisItemData["name"]
-        self._names[self.name.upper()] = self.itemID
+        self._names[self.name.upper()] = self.objID
         self.messages = thisItemData["messages"]
         self.weight = thisItemData["weight"]
         self.activated = thisItemData["activated"]
@@ -300,13 +300,13 @@ class Obstacle():
     _registry = {}
     _names = {}
 
-    def __init__(self, obstacleID):
-        self._registry[obstacleID] = self
-        self.obstacleID = obstacleID
-        thisObstacleData = allObstacleData[obstacleID]
+    def __init__(self, objID):
+        self._registry[objID] = self
+        self.objID = objID
+        thisObstacleData = allObstacleData[objID]
 
         self.name = thisObstacleData["name"]
-        self._names[self.name.upper()] = self.obstacleID
+        self._names[self.name.upper()] = self.objID
         self.unblockKeyword = thisObstacleData["unblockKeyword"]
         self.key = thisObstacleData["key"] 
         self.keyShouldBeActivated = thisObstacleData["keyShouldBeActivated"]
@@ -320,13 +320,13 @@ class Room():
     _registry = {}
     _names = {}
 
-    def __init__(self, roomID):
-        self._registry[roomID] = self
-        self.roomID = roomID
-        thisRoomData = allRoomData[roomID]
+    def __init__(self, objID):
+        self._registry[objID] = self
+        self.objID = objID
+        thisRoomData = allRoomData[objID]
 
         self.name = thisRoomData["name"]
-        self._names[self.name.upper()] = self.roomID
+        self._names[self.name.upper()] = self.objID
         self.adjRooms = thisRoomData["adjRooms"]
         self.adjRoomObstacles = thisRoomData["adjRoomObstacles"]
 
@@ -338,14 +338,14 @@ class Room():
         self.playerVisited = thisRoomData["playerVisited"]
         self.entryCutscene = thisRoomData["entryCutscene"]
 
-    def set_room_id(self, roomID):
-        self.roomID = roomID
+    def set_room_id(self, objID):
+        self.objID = objID
     def get_room_id(self):
-        return self.roomID
+        return self.objID
 
     def removeObstacle(self, obstacle):
         for i in self.adjRoomObstacles:
-            if self.adjRoomObstacles[i] == obstacle.obstacleID:
+            if self.adjRoomObstacles[i] == obstacle.objID:
                 self.adjRoomObstacles[i] = NULL_TAG
                 return
         print("PROGRAMMING ERROR: Tried removing obstacle not in current location")

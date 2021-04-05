@@ -59,16 +59,16 @@ print("Pix's inventory has: ", pix.inventory, "\n") # Torch
 pix.wield(torch) # Pix wields torch
 print("Is torch activated? {}".format(torch.activated)) # False
 pix.activate("eat", torch) # Pix doesn't know how to do that
-pix.activate("light", torch) # Pix lights the torch
+pix.activate("LIGHT", torch) # Pix lights the torch
 print("Is torch activated? {}".format(torch.activated)) # True
-pix.activate("light", torch) # Torch is already lit
+pix.activate("LIGHT", torch) # Torch is already lit
 print("Is torch activated? {}".format(torch.activated), "\n") # True
 
-pix.activate("put out", torch) # Pix puts out torch
+pix.activate("EXTINGUISH", torch) # Pix puts out torch
 print("Is torch activated? {}".format(torch.activated)) # False
 pix.activate("eat", torch) # Pix doesn't know how to do that
 print("Is torch activated? {}".format(torch.activated)) # False
-pix.activate("light", torch) # Pix lights torch
+pix.activate("LIGHT", torch) # Pix lights torch
 print("Is torch activated? {}".format(torch.activated), "\n") # True
 
 pix.wield(key) # Pix wields key
@@ -82,13 +82,13 @@ print("Is torch activated? {}".format(torch.activated)) # True
 pix.wield(torch)
 pix.move("W")
 print("Obstacles in this room: ", pix.locationObject.adjRoomObstacles) # Door to the west
-pix.removeObstacle("unlock", door) # Failed to unlock, the torch isn't a key
+pix.removeObstacle("UNLOCK", door) # Failed to unlock, the torch isn't a key
 print("Obstacles in this room: ", pix.locationObject.adjRoomObstacles, "\n") # Door to the west
 
 pix.wield(key)
 pix.move("W")
 print("Obstacles in this room: ", pix.locationObject.adjRoomObstacles) # Door to the west
-pix.removeObstacle("unlock", door) # Unlocks door
+pix.removeObstacle("UNLOCK", door) # Unlocks door
 print("Obstacles in this room: ", pix.locationObject.adjRoomObstacles) # None
 pix.move("W")
 print("\n")
@@ -99,23 +99,23 @@ pix.move("S")
 pix.move("E")
 pix.move("W")
 pix.move("W")
-pix.removeObstacle("scare", bats)
+pix.removeObstacle("SCARE", bats)
 pix.wield(torch)
-pix.activate("put out", torch)
-pix.removeObstacle("scare", bats)
+pix.activate("EXTINGUISH", torch)
+pix.removeObstacle("SCARE", bats)
 print("Obstacles in this room: ", pix.locationObject.adjRoomObstacles)
-pix.activate("light", torch)
-pix.removeObstacle("scare", bats)
+pix.activate("LIGHT", torch)
+pix.removeObstacle("SCARE", bats)
 print("Obstacles in this room: ", pix.locationObject.adjRoomObstacles, "\n")
 
 pix.move("W")
 print("Obstacles in this room: ", pix.locationObject.adjRoomObstacles)
 print("Characters in this room: ", pix.locationObject.characters)
-pix.removeObstacle("push", boulder)
+pix.removeObstacle("PUSH", boulder)
 pix.move("N")
 marine.removeObstacle("politely talk with", boulder)
 pix.move("N")
-marine.removeObstacle("push", boulder)
+marine.removeObstacle("PUSH", boulder)
 pix.recruit(marine) #add marine to pix's party and vice versa
 print(pix.party)  
 print(marine.party)

@@ -24,12 +24,14 @@ pix.activeCharacter(1)
 print(pix.locationObject.entryCutscene)
 playerCharacter = pix
 
-def validateItem(itemName):
-    for i in gameClasses.Item._names:
-        if itemName == i:
-            itemID = gameClasses.Item._names[itemName]
-            item = gameClasses.Item._registry[itemID]
-            return item
+
+def verifyObject(C, inputName):
+	# C should be gameClasses.X, where X is any class in gameClasses.py
+    for i in C._names:
+        if inputName == i:
+            objID = C._names[inputName]
+            obj = C._registry[objID]
+            return obj
     return None
 
 GENERAL_ITEM_COMMANDS = {
@@ -52,7 +54,7 @@ while(1):
         if (inputArgs[0] in gameClasses.DIRECTIONS):
             playerCharacter.move(inputArgs[0])
     elif argLen == 2:
-        item = validateItem(inputArgs[1])
+        item = verifyObject(gameClasses.Item, inputArgs[1])
         if item != None:
             if (inputArgs[0] in GENERAL_ITEM_COMMANDS):
                 if item != None:
@@ -61,7 +63,7 @@ while(1):
         	    playerCharacter.activate(inputArgs[0], item)
         else:
         	print(gameClasses.objActionInvalid.format(
-        		playerCharacter.name, inputArgs[0], inputArgs[1]))
+        		playerCharacter.name + "'s", inputArgs[0], inputArgs[1]))
     else:
         print("{} mind wandered and didn't do anything.".format(playerCharacter.name))
 
