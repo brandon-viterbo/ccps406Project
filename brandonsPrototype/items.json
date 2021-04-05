@@ -3,9 +3,8 @@
 		"name": "torch",
     "activateWord": "LIGHT",
     "deactivateWord": "EXTINGUISH",
+    "lookDescription": "You can light this up.",
 		"messages": {
-			"roomItemDescription": "A wooden torch",
-    		"characterItemDescription": "It's feels lightweight. This can probably be lit.",
     		"itemAlreadyActive": "The torch is already lit, you can't do anything else with it.",
         "itemAlreadyDeactive": "There's no fire to extinguish.",
     		"itemActivated": "A bright flame shines from the torch's head. It can be extinguished.",
@@ -19,9 +18,8 @@
 		"name": "key",
     "activateWord": "NULL",
     "deactivateWord": "NULL",
+    "lookDescription": "This might be able to unlock a nearby door.",
 		"messages": {
-			"roomItemDescription": "A key.",
-    		"characterItemDescription": "A key, we can use this to unlock a door.",
     		"itemInvalid": "NULL",
     		"itemActivated": "NULL",
     		"itemDeactivated": "NULL"

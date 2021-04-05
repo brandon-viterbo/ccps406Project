@@ -6,7 +6,8 @@
 		"items": ["i000_torch"],
 		"characters": ["c000_pix"],
 		"playerVisited": true,
-		"entryCutscene": "It sure is boring around here!"
+		"lookDescription": "This room is somehow ornate and boring at the same time.",
+		"entryCutscene": "Pix thinks to themself, 'It sure is boring around here!'"
 	},
 
 	"r001": {
@@ -16,7 +17,8 @@
 		"items": [],
 		"characters": [],
 		"playerVisited": false,
-		"entryCutscene": "It's pretty cold up North!"
+		"lookDescription": "This room feels way colder than the other rooms in the dungeon.",
+		"entryCutscene": "Pix shivers. 'It's pretty cold up North!'"
 	},
 
 	"r002": {
@@ -26,7 +28,8 @@
 		"items": [],
 		"characters": [],
 		"playerVisited": false,
-		"entryCutscene": "It's pretty hot down south!"
+		"lookDescription": "There's fire blasting across the cieling here. It feels like a furnace in here.",
+		"entryCutscene": "Pix is sweating. 'It's pretty hot down south!'"
 	},
 
 	"r003": {
@@ -36,7 +39,8 @@
 		"items": [],
 		"characters": [],
 		"playerVisited": false,
-		"entryCutscene": "I can see the sun rising here!"
+		"lookDescription": "There's a window looking out the horizon. The lush green field outside makes this dungeon feel grimmer than it already is.",
+		"entryCutscene": "Pix feels the warmth of the rising sun on their face. 'I can see the sun rising here!'"
 	},
 
 	"r004": {
@@ -46,7 +50,8 @@
 		"items": ["i001_key"],
 		"characters": [],
 		"playerVisited": false,
-		"entryCutscene": "I can see the sun setting here!"
+		"lookDescription": "There's a window looking out to the ocean.",
+		"entryCutscene": "'It looks really blue and pretty' Pix laments. They want to get out of the dungeon as soon as possible."
 	},
 
 	"r005": {
@@ -56,7 +61,8 @@
 		"items": [],
 		"characters": [],
 		"playerVisited": false,
-		"entryCutscene": "It's dusty in here!"
+		"lookDescription": "A secret room. Looks like nobody has been here in a long time.",
+		"entryCutscene": "Pix starts sneezing a lot. 'It's dusty in here!'"
 	},
 
   "r006": {
@@ -66,6 +72,7 @@
 		"items": [],
 		"characters": [],
 		"playerVisited": false,
+		"lookDescription": "There are drawings all over the wall. They show bats flying away from fire.",
 		"entryCutscene": "There is a swarm of bats blocking the way west!\n'Oh no, I'm scared of bats...' Pix says to themself."
   },
 
@@ -76,6 +83,7 @@
 		"items": [],
 		"characters": ["c001_marine"],
 		"playerVisited": false,
+		"lookDescription": "Drawings on the wall show labourers concealing an entrance with a big rock.",
 		"entryCutscene": "There's a woman looking frustrated at a boulder. At the North side of the room. \n'I almost got it outta the way!' She notices Pix behind her. \n'Oh howdy! My name is Marine!'"
   },
   "r008": {
@@ -85,6 +93,7 @@
 		"items": [],
 		"characters": [],
 		"playerVisited": false,
+		"lookDescription": "End of the line...",
 		"entryCutscene": "Pix feels really proud of themself. 'Looks like I'm at the end of the line!'"
   }
 }

@@ -48,6 +48,7 @@ class Character():
     _registry = {}
     _names = {}
 
+
     def __init__(self, objID):
         self._registry[objID] = self
         self.objID = objID
@@ -65,6 +66,22 @@ class Character():
         self.locationID = thisCharacterData["locationID"]
         self.locationObject = Room._registry[self.locationID]
         self.party = thisCharacterData["party"]
+        self.lookDescription = thisCharacterData["lookDescription"]
+
+
+    def look(self, obj):
+        currentRoom = self.locationObject
+
+        if obj == currentRoom:
+            print(currentRoom.lookDescription)
+            return
+        elif ((obj.objID in currentRoom.items) or 
+        (obj.objID in currentRoom.characters) or 
+        (obj.objID in currentRoom.adjRoomObstacles.values()) or
+        (obj.objID in self.inventory) or (obj.objID == self.wieldedItem)):
+            print(obj.lookDescription)
+            return
+        print(objActionUnsuccessful.format(self.name, "see", obj.name))
 
 
     def take(self, item):
@@ -158,7 +175,10 @@ class Character():
 
     def activate(self, verb, item):
         # This method can also deativate items.
-        if (item.objID == self.wieldedItem):
+        if item.objID in self.inventory:
+            print("Trying wielding an item before doing anything with it.")
+            return
+        elif (item.objID == self.wieldedItem):
             wieldedItem = Item._registry[item.objID]
             if wieldedItem.activateWord == NULL_TAG:
                 # If item can't be activated, return.
@@ -214,6 +234,7 @@ class Character():
 
         print(enteringRoomSuccessful.format(self.name, self.locationObject.name))
         if self.locationObject.playerVisited == False and self.playerCharacter:
+            print(self.locationObject.lookDescription)
             print(self.locationObject.entryCutscene)
             self.locationObject.playerVisited = True  
         return
@@ -293,6 +314,7 @@ class Item():
 
         self.activateWord = thisItemData["activateWord"]
         self.deactivateWord = thisItemData["deactivateWord"]
+        self.lookDescription = thisItemData["lookDescription"]
 
 
 
@@ -313,6 +335,7 @@ class Obstacle():
         self.strengthCheck = thisObstacleData["strengthCheck"]
         self.sizeCheck = thisObstacleData["sizeCheck"]
         self.messages = thisObstacleData["messages"]
+        self.lookDescription = thisObstacleData["lookDescription"]
 
 
 
@@ -337,6 +360,7 @@ class Room():
 
         self.playerVisited = thisRoomData["playerVisited"]
         self.entryCutscene = thisRoomData["entryCutscene"]
+        self.lookDescription = thisRoomData["lookDescription"]
 
     def set_room_id(self, objID):
         self.objID = objID
