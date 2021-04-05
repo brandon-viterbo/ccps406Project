@@ -1,7 +1,7 @@
 {
 	"o000_door": {
 		"name": "door",
-		"unblockKeyword": "unlock",
+		"unblockKeyword": "UNLOCK",
 		"key": "i001_key", 
 		"keyShouldBeActivated": false,
 		"strengthCheck": 0,
@@ -14,7 +14,7 @@
 
 	"o001_bats": {
 		"name": "bats",
-		"unblockKeyword": "scare",
+		"unblockKeyword": "SCARE",
 		"key": "i000_torch", 
 		"keyShouldBeActivated": true,
 		"strengthCheck": 0,
@@ -27,7 +27,7 @@
 
 	"o002_boulder": {
 		"name": "boulder",
-		"unblockKeyword": "push",
+		"unblockKeyword": "PUSH",
 		"key": "NULL", 
 		"keyShouldBeActivated": false,
 		"strengthCheck": 20,

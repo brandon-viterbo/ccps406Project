@@ -46,6 +46,7 @@ with open(OBSTACLES_RAW, "r") as readFile:
 
 class Character():
     _registry = {}
+    _names = {}
 
     def __init__(self, charID):
         self._registry[charID] = self
@@ -55,6 +56,7 @@ class Character():
         self.emotionalState = "happy"
 
         self.name = thisCharacterData["name"]
+        self._names[self.name.upper()] = self.charID
         self.dialogue = thisCharacterData["dialogue"]
         self.strength = thisCharacterData["strength"]
         self.weight = thisCharacterData["weight"]
@@ -274,6 +276,7 @@ class Character():
 
 class Item():
     _registry = {}
+    _names = {}
 
     def __init__(self, itemID):
         self._registry[itemID] = self
@@ -281,6 +284,7 @@ class Item():
         thisItemData = allItemData[itemID]
 
         self.name = thisItemData["name"]
+        self._names[self.name.upper()] = self.itemID
         self.messages = thisItemData["messages"]
         self.weight = thisItemData["weight"]
         self.activated = thisItemData["activated"]
@@ -294,6 +298,7 @@ class Item():
 
 class Obstacle():
     _registry = {}
+    _names = {}
 
     def __init__(self, obstacleID):
         self._registry[obstacleID] = self
@@ -301,6 +306,7 @@ class Obstacle():
         thisObstacleData = allObstacleData[obstacleID]
 
         self.name = thisObstacleData["name"]
+        self._names[self.name.upper()] = self.obstacleID
         self.unblockKeyword = thisObstacleData["unblockKeyword"]
         self.key = thisObstacleData["key"] 
         self.keyShouldBeActivated = thisObstacleData["keyShouldBeActivated"]
@@ -312,6 +318,7 @@ class Obstacle():
 
 class Room():
     _registry = {}
+    _names = {}
 
     def __init__(self, roomID):
         self._registry[roomID] = self
@@ -319,6 +326,7 @@ class Room():
         thisRoomData = allRoomData[roomID]
 
         self.name = thisRoomData["name"]
+        self._names[self.name.upper()] = self.roomID
         self.adjRooms = thisRoomData["adjRooms"]
         self.adjRoomObstacles = thisRoomData["adjRoomObstacles"]
 
