@@ -27,17 +27,27 @@ playerCharacter = pix
 
 invalidInputMessage = "{} mind wandered and didn't do anything.".format(playerCharacter.name)
 
+LOOK_COMMAND = "LOOK"
+
+GENERAL_COMMANDS = {
+    "LOOK": playerCharacter.look
+}
+
 ITEM_COMMANDS = {
     "TAKE": playerCharacter.take,
     "WIELD": playerCharacter.wield,
     "DROP": playerCharacter.drop
 }
 
-GENERAL_COMMANDS = {
-    "LOOK": playerCharacter.look
+CHARACTER_COMMANDS = {
+    "RECRUIT": playerCharacter.recruit,
+    "TALK": playerCharacter.talk
 }
 
-LOOK_COMMAND = "LOOK"
+
+def main(playerCharacter):
+    inputLoop(playerCharacter, False)
+
 
 def verifyObject(C, inputName):
 	# C should be gameClasses.X, where X is any class in gameClasses.py
@@ -48,22 +58,85 @@ def verifyObject(C, inputName):
             return obj
     return None
 
+def shiftPlayerControl(playerCharacter, character):
+    if character.objID not in playerCharacter.party:
+        print("{} is not in {}'s party.".format(
+            character.name, playerCharacter.name))
+    else:
+        print("{} says, 'What should I do?'".format(character.name))
+        inputLoop(character, False)
 
-while(1):
+
+
+def inputLoop(playerCharacter, endCondition):
+    while(not endCondition):
+        userIn = input()
+        inputArgs = userIn.split()
+        argLen = len(inputArgs)
+
+        count = 0
+        for i in inputArgs:
+            inputArgs[count] = i.upper()
+            count += 1
+
+        if argLen == 1:
+            character = verifyObject(gameClasses.Character, inputArgs[0])
+            if (inputArgs[0] in gameClasses.DIRECTIONS):
+                playerCharacter.move(inputArgs[0])
+            elif inputArgs[0] == LOOK_COMMAND:
+                playerCharacter.look(playerCharacter.locationObject)
+            elif character != None:
+                shiftPlayerControl(playerCharacter, character)
+            else:
+                print(invalidInputMessage)
+        elif argLen == 2:
+            item = verifyObject(gameClasses.Item, inputArgs[1])
+            character = verifyObject(gameClasses.Character, inputArgs[1])
+            obstacle = verifyObject(gameClasses.Obstacle, inputArgs[1])
+            generalObject = None
+            for i in [item, character, obstacle]:
+                if i != None:
+                    generalObject = i
+                    break
+            if ((inputArgs[0] in GENERAL_COMMANDS) and (generalObject != None)):
+                GENERAL_COMMANDS[inputArgs[0]](generalObject)
+            elif item != None:
+                if (inputArgs[0] in ITEM_COMMANDS):
+                    ITEM_COMMANDS[inputArgs[0]](item)
+                else:
+                    playerCharacter.activate(inputArgs[0], item)
+            elif obstacle != None:
+                playerCharacter.removeObstacle(inputArgs[0], obstacle)
+            elif character != None:
+                CHARACTER_COMMANDS[inputArgs[0]](character)
+            else:
+                print(gameClasses.objActionInvalid.format(
+                playerCharacter.name, inputArgs[0], inputArgs[1]))
+        else:
+            print(invalidInputMessage)
+        print("\n")
+        if not playerCharacter.playerCharacter:
+            break
+
+main(playerCharacter)
+
+"""while(1):
     userIn = input()
     inputArgs = userIn.split()
     argLen = len(inputArgs)
 
     count = 0
     for i in inputArgs:
-    	inputArgs[count] = i.upper()
-    	count += 1
+        inputArgs[count] = i.upper()
+        count += 1
 
     if argLen == 1:
         if (inputArgs[0] in gameClasses.DIRECTIONS):
             playerCharacter.move(inputArgs[0])
         elif inputArgs[0] == LOOK_COMMAND:
             playerCharacter.look(playerCharacter.locationObject)
+        else:
+            print(invalidInputMessage)
     elif argLen == 2:
         item = verifyObject(gameClasses.Item, inputArgs[1])
         character = verifyObject(gameClasses.Character, inputArgs[1])
@@ -73,8 +146,7 @@ while(1):
             if i != None:
                 generalObject = i
                 break
-        if ((inputArgs[0] in GENERAL_COMMANDS) and 
-        (item != None or character != None or obstacle != None)):
+        if ((inputArgs[0] in GENERAL_COMMANDS) and (generalObject != None)):
             GENERAL_COMMANDS[inputArgs[0]](generalObject)
         elif item != None:
             if (inputArgs[0] in ITEM_COMMANDS):
@@ -83,10 +155,12 @@ while(1):
                 playerCharacter.activate(inputArgs[0], item)
         elif obstacle != None:
             playerCharacter.removeObstacle(inputArgs[0], obstacle)
+        elif character != None:
+            CHARACTER_COMMANDS[inputArgs[0]](character)
         else:
             print(gameClasses.objActionInvalid.format(
                 playerCharacter.name, inputArgs[0], inputArgs[1]))
     else:
         print(invalidInputMessage)
 
-    print("\n")
+    print("\n")"""

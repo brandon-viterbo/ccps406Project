@@ -227,10 +227,11 @@ class Character():
         self.locationID = nextobjID
         self.locationObject.characters.append(self.objID)
 
-        for i in self.party:
-            if i != NULL_TAG:
-                member = Character._registry[i]
-                member.move(direction)
+        if self.playerCharacter:
+            for i in self.party:
+                if i != NULL_TAG:
+                    member = Character._registry[i]
+                    member.move(direction)
 
         print(enteringRoomSuccessful.format(self.name, self.locationObject.name))
         if self.locationObject.playerVisited == False and self.playerCharacter:
@@ -242,7 +243,7 @@ class Character():
 
     def removeObstacle(self, verb, obstacle):
         if obstacle.objID not in self.locationObject.adjRoomObstacles.values():
-            print(singleAction.format(self.name, "do that"))
+            print(singleActionUnsuccessful.format(self.name, "do that"))
             return
 
         if self.strength <= obstacle.strengthCheck:
