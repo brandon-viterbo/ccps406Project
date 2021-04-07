@@ -73,7 +73,9 @@ class Character():
         currentRoom = self.locationObject
 
         if obj == currentRoom:
+            print("--{}--".format(self.locationObject.name))
             print(currentRoom.lookDescription)
+            currentRoom.displayContents()
             return
         elif ((obj.objID in currentRoom.items) or 
         (obj.objID in currentRoom.characters) or 
@@ -85,12 +87,10 @@ class Character():
 
 
     def take(self, item):
-        """Action Type: objAction"""
-        verb = "took"
         count = 0
 
         if item.objID not in self.locationObject.items:
-            print(objActionInvalid.format(self.name, verb, item.name))
+            print(objActionInvalid.format(self.name, "take", item.name))
             return
 
         if item.weight > self.strength:
@@ -100,11 +100,47 @@ class Character():
         for i in self.inventory:
             if i == NULL_TAG:
                 self.inventory[count] = item.objID
-                print(objActionSuccessful.format(self.name, verb, item.name))
+                print(objActionSuccessful.format(self.name, "took the", item.name))
                 self.locationObject.items.remove(item.objID)
                 return
             count += 1
-        print(objActionUnsuccessful.format(self.name, verb, item.name))
+        print("{}'s is full.")
+
+
+    def displayInventory(self):
+        emptySlots = 0
+        items = []
+        for i in self.inventory:
+            if i == NULL_TAG:
+                emptySlots += 1
+            else:
+                items.append(Item._registry[i])
+
+        res = "{} has: ".format(self.name)
+        noOfItems = len(items)
+        if noOfItems == 1:
+            res += ("{}.".format(items[0].name))
+        elif noOfItems > 1:
+            index = 0
+            for i in items:
+                if index+1 == noOfItems:
+                    res += ("and {}.".format(i.name))
+                else:
+                    res += ("{}, ".format(i.name))
+                index += 1
+        else:
+            res += ("nothing.")
+
+        if self.wieldedItem != NULL_TAG:
+            print("{} is wielding: {}.".format(
+                self.name, Item._registry[self.wieldedItem].name))
+        else:
+            print("{} isn't wielding anything.".format(self.name))
+
+        print(res)
+        print("Additional number of items {} can carry: {}".format(self.name, emptySlots))
+
+
     
 
     def recruit(self, charName):
@@ -237,6 +273,7 @@ class Character():
         if self.locationObject.playerVisited == False and self.playerCharacter:
             print(self.locationObject.lookDescription)
             print(self.locationObject.entryCutscene)
+            self.locationObject.displayContents()
             self.locationObject.playerVisited = True  
         return
 
@@ -367,6 +404,48 @@ class Room():
         self.objID = objID
     def get_room_id(self):
         return self.objID
+
+    def displayContents(self):
+        contents = []
+        directions = []
+
+        res = "This room has: "
+        dirs = "From here, you can go: "
+
+        for i in self.characters:
+            contents.append(Character._registry[i].name)
+        for i in self.items:
+            contents.append(Item._registry[i].name)
+        for i in self.adjRoomObstacles.values():
+            if i !=  NULL_TAG:
+                contents.append(Obstacle._registry[i].name)
+
+        for direction in self.adjRooms:
+            if self.adjRooms[direction] != NULL_TAG:
+                directions.append(direction)
+
+        def mkString(res, l):
+            noOfObjs = len(l)
+            if noOfObjs == 1:
+                res += ("{}.".format(l[0]))
+            elif noOfObjs > 1:
+                index = 0
+                for i in l:
+                    if index+1 == noOfObjs:
+                        res += ("and {}.".format(i))
+                    else:
+                        res += ("{}, ".format(i))
+                    index += 1
+            else:
+                res += ("nothing.")
+            return res
+
+        res = mkString(res, contents)
+        dirs = mkString(dirs, directions)
+
+        print(res)
+        print(dirs)
+
 
     def removeObstacle(self, obstacle):
         for i in self.adjRoomObstacles:
