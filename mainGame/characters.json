@@ -1,0 +1,38 @@
+{
+    "c000_pix" : {
+    	"name": "Pix",
+      "lookDescription": "They're a little, adventurous kid.",
+    	"dialogue": {
+    		"happy": "We did it!",
+    		"concerned": "Watch out!",
+    		"idle": "Shoulda brought a book.",
+    		"focused": "There's gotta be a way outta this.",
+    		"angry": "Darn!"
+    	},
+    	"strength": 10,
+    	"weight": 20,
+      "size": 30,
+    	"inventory": ["NULL", "NULL", "NULL", "NULL", "NULL"],
+      "party": ["NULL"],
+    	"wieldedItem": "NULL",
+    	"locationID": "r003"
+	},
+    "c001_marine" : {
+        "name": "Marine",
+        "lookDescription": "She looks like a big and strong woman.",
+        "dialogue": {
+          "happy": "We did it!",
+          "concerned": "Watch out!",
+          "idle": "Shoulda brought a book.",
+          "focused": "There's gotta be a way outta this.",
+          "angry": "Darn!"
+        },
+        "strength": 30,
+        "weight": 30,
+        "size": 10,
+        "inventory": ["NULL", "NULL", "NULL", "NULL", "NULL"],
+        "party": ["NULL"],
+        "wieldedItem": "NULL",
+        "locationID": "r003"
+  }
+}

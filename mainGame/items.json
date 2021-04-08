@@ -1,0 +1,160 @@
+{
+	"i000_torch" : {
+		"name": "torch",
+    "activateWord": "LIGHT",
+    "deactivateWord": "EXTINGUISH",
+    "lookDescription": "You can light this up.",
+		"messages": {
+    		"itemAlreadyActive": "The torch is already lit, you can't do anything else with it.",
+        "itemAlreadyDeactive": "There's no fire to extinguish.",
+    		"itemActivated": "A bright flame shines from the torch's head. It can be extinguished.",
+    		"itemDeactivated": "The torch's flame goes out."
+  		},
+  		"weight": 1,
+  		"activated": false
+	},
+
+	"i001_stone" : {
+		"name": "stone",
+    "activateWord": "NULL",
+    "deactivateWord": "NULL",
+    "lookDescription": "A rough stone. You could throw it at something.",
+		"messages": {
+    		"itemInvalid": "NULL",
+    		"itemActivated": "NULL",
+    		"itemDeactivated": "NULL"
+  		},
+  		"weight": 1,
+  		"activated": false
+	},
+
+  "i002_shield" : {
+		"name": "shield",
+    "activateWord": "NULL",
+    "deactivateWord": "NULL",
+    "lookDescription": "A big shield. It can probably take a few hits.",
+		"messages": {
+    		"itemInvalid": "NULL",
+    		"itemActivated": "NULL",
+    		"itemDeactivated": "NULL"
+  		},
+  		"weight": 1,
+  		"activated": false
+	},
+
+  "i003_key" : {
+		"name": "key",
+    "activateWord": "NULL",
+    "deactivateWord": "NULL",
+    "lookDescription": "This might be able to unlock a nearby door.",
+		"messages": {
+    		"itemInvalid": "NULL",
+    		"itemActivated": "NULL",
+    		"itemDeactivated": "NULL"
+  		},
+  		"weight": 1,
+  		"activated": false
+	},
+
+  "i004_fan" : {
+		"name": "fan",
+    "activateWord": "NULL",
+    "deactivateWord": "NULL",
+    "lookDescription": "A giant paper fan. You feel a cool breeze from waving it.",
+		"messages": {
+    		"itemInvalid": "NULL",
+    		"itemActivated": "NULL",
+    		"itemDeactivated": "NULL"
+  		},
+  		"weight": 1,
+  		"activated": false
+	},
+
+  "i005_flag" : {
+		"name": "flag",
+    "activateWord": "NULL",
+    "deactivateWord": "NULL",
+    "lookDescription": "A large flag. On the coat of arms you see a dragon.",
+		"messages": {
+    		"itemInvalid": "NULL",
+    		"itemActivated": "NULL",
+    		"itemDeactivated": "NULL"
+  		},
+  		"weight": 1,
+  		"activated": false
+	},
+
+  "i006_trident" : {
+		"name": "trident",
+    "activateWord": "NULL",
+    "deactivateWord": "NULL",
+    "lookDescription": "A heavy, ancient looking trident. The points look sharp!",
+		"messages": {
+    		"itemInvalid": "NULL",
+    		"itemActivated": "NULL",
+    		"itemDeactivated": "NULL"
+  		},
+  		"weight": 20,
+  		"activated": false
+	},
+
+  "i007_violin" : {
+		"name": "violin",
+    "activateWord": "PLAY",
+    "deactivateWord": "STOP",
+    "lookDescription": "A small violin.",
+			"messages": {
+    		"itemAlreadyActive": "The violin is already being played.",
+        "itemAlreadyDeactive": "The violin isn't being played.",
+    		"itemActivated": "A soft beautiful melody comes from the violin.",
+    		"itemDeactivated": "The violin's beautiful melody crescendos, diminuendos, and comes to an end."
+  		},
+  		"weight": 1,
+  		"activated": false
+	},
+
+  "i008_octobass" : {
+		"name": "octobass",
+    "activateWord": "PLAY",
+    "deactivateWord": "STOP",
+    "lookDescription": "A large octobass.",
+		"messages": {
+    		"itemAlreadyActive": "The octobass is already being played.",
+        "itemAlreadyDeactive": "The octobass isn't being played.",
+    		"itemActivated": "A low, powerful, but soothing melody comes from the octobass.",
+    		"itemDeactivated": "The octobass' bassy and supportive melody comes to an end."
+  		},
+  		"weight": 20,
+  		"activated": false
+	},
+
+  "i009_gem" : {
+		"name": "gem",
+    "activateWord": "NULL",
+    "deactivateWord": "NULL",
+    "lookDescription": "A shiny gem.",
+		"messages": {
+      "itemAlreadyActive": "NULL",
+      "itemAlreadyDeactive": "NULL",
+      "itemActivated": "NULL",
+      "itemDeactivated": "NULL"
+  	},
+  	"weight": 1,
+  	"activated": false
+	},
+
+  "i010_fish" : {
+    "name": "fish",
+    "activateWord": "NULL",
+    "deactivateWord": "NULL",
+    "lookDescription": "A fatty, oily, and delicious fish.",
+    "messages": {
+      "itemAlreadyActive": "NULL",
+      "itemAlreadyDeactive": "NULL",
+      "itemActivated": "NULL",
+      "itemDeactivated": "NULL"
+    },
+    "weight": 1,
+    "activated": false
+  }
+}

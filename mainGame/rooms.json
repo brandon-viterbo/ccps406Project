@@ -1,0 +1,153 @@
+{
+	"r000": {
+		"name": "Shore",
+		"adjRooms": {"N":"NULL","S":"r001","E":"r002","W":"NULL"},
+		"adjRoomObstacles": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"},
+		"items": [],
+		"characters": [],
+		"playerVisited": true,
+		"lookDescription": "A peaceful beach on the shoreline",
+		"entryCutscene": "Pix thinks to themself, 'It sure is boring around here!'"
+	},
+
+	"r001": {
+		"name": "Valley",
+		"adjRooms": {"N":"r000","S":"r005","E":"NULL","W":"r004"},
+		"adjRoomObstacles": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"},
+		"items": [],
+		"characters": [],
+		"playerVisited": false,
+		"lookDescription": "A large valley, looking south you can see a large temple.",
+		"entryCutscene": "There are no valleys like this on Galekeep Island. 'This valley stretches on forever!' Pix says."
+	},
+  "r002": {
+		"name": "Village Square",
+		"adjRooms": {"N":"NULL","S":"r003","E":"NULL","W":"r000"},
+		"adjRoomObstacles": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"},
+		"items": [],
+		"characters": [],
+		"playerVisited": false,
+		"lookDescription": "Evergreen Island's village square. It looks lively today.",
+		"entryCutscene": "A villager approaches. 'Hey Marine! Who's this lil twerp!'\n Before Pix could shout at the villager, Marine stood between them and said, 'They're Pix, we're in a hurry. Sorry!'"
+	},
+  "r003": {
+		"name": "Family Home",
+		"adjRooms": {"N":"r002","S":"NULL","E":"NULL","W":"NULL"},
+		"adjRoomObstacles": {"N":"o008_alfredo","S":"NULL","E":"NULL","W":"NULL"},
+		"items": ["i010_fish"],
+		"characters": ["c000_pix","c001_marine"],
+		"playerVisited": false,
+		"lookDescription": "This is Marine's house. A quaint little house. You can see a beautiful, spacious valley behind it",
+		"entryCutscene": "'Oh back so soon?' says Geoff."
+	},
+  "r004": {
+		"name": "Lake",
+		"adjRooms": {"N":"NULL","S":"NULL","E":"r001","W":"NULL"},
+		"adjRoomObstacles": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"},
+		"items": [],
+		"characters": [],
+		"playerVisited": false,
+		"lookDescription": "A beautiful lake with deep blue water",
+		"entryCutscene": "Perfect for fishing!"
+	},
+  "r005": {
+		"name": "Temple Entrance",
+		"adjRooms": {"N":"r001","S":"r006","E":"NULL","W":"NULL"},
+		"adjRoomObstacles": {"N":"NULL","S":"o001_bats","E":"NULL","W":"NULL"},
+		"items": ["i000_torch","i001_stone"],
+		"characters": [],
+		"playerVisited": false,
+		"lookDescription": "The temple looms in front of you",
+		"entryCutscene": "Kinda spooky!"
+	},
+  "r006": {
+		"name": "Antechamber",
+		"adjRooms": {"N":"r005","S":"r010","E":"r009","W":"r007"},
+		"adjRoomObstacles": {"N":"NULL","S":"o003_gate","E":"o000_door","W":"NULL"},
+		"items": [],
+		"characters": [],
+		"playerVisited": false,
+		"lookDescription": "A dark antechamber",
+		"entryCutscene": "Can't see!"
+	},
+  "r007": {
+		"name": "Antechamber A1",
+		"adjRooms": {"N":"NULL","S":"NULL","E":"r006","W":"r008"},
+		"adjRoomObstacles": {"N":"NULL","S":"NULL","E":"NULL","W":"o004_hole"},
+		"items": [],
+		"characters": [],
+		"playerVisited": false,
+		"lookDescription": "You are in the first sub-room of the antechamber",
+		"entryCutscene": "Kinda spooky!"
+	},
+  "r008": {
+		"name": "Tiny Hole",
+		"adjRooms": {"N":"NULL","S":"NULL","E":"r007","W":"NULL"},
+		"adjRoomObstacles": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"},
+		"items": ["i003_key"],
+		"characters": [],
+		"playerVisited": false,
+		"lookDescription": "You enter the small hole and notice a key on the ground.",
+		"entryCutscene": "Tight Squeeze!"
+	},
+  "r009": {
+		"name": "Antechamber A2",
+		"adjRooms": {"N":"NULL","S":"NULL","E":"NULL","W":"r006"},
+		"adjRoomObstacles": {"N":"NULL","S":"NULL","E":"NULL","W":"o002_boulder"},
+		"items": ["i009_gem"],
+		"characters": [],
+		"playerVisited": false,
+		"lookDescription": "You are in the second sub-room of the antechamber. As you enter a large boulder falls down and blocks the door you just came through!",
+		"entryCutscene": "Kinda spooky!"
+	},
+  "r010": {
+		"name": "Temple Arrow Room",
+		"adjRooms": {"N":"r006","S":"r011","E":"NULL","W":"NULL"},
+		"adjRoomObstacles": {"N":"NULL","S":"o005_arrows","E":"NULL","W":"NULL"},
+		"items": ["i002_shield"],
+		"characters": [],
+		"playerVisited": false,
+		"lookDescription": "As you enter the room, a volley of arrows begins flying across the hallway. It is impossible to pass without blocking the arrows!",
+		"entryCutscene": " You see a skeleton with a shield lying on the ground before you. Must have been the last poor soul to enter here..."
+	},
+  "r011": {
+		"name": "Temple Chasm",
+		"adjRooms": {"N":"r010","S":"r012","E":"NULL","W":"NULL"},
+		"adjRoomObstacles": {"N":"NULL","S":"o006_chasm","E":"NULL","W":"NULL"},
+		"items": ["i004_fan","i005_flag"],
+		"characters": [],
+		"playerVisited": false,
+		"lookDescription": "A deep chasm. There's a drawbridge leading across, but the controls are on the other side! A heavy breeze blows from below",
+		"entryCutscene": "How can we get across!"
+	},
+  "r012": {
+		"name": "Eye of The Temple",
+		"adjRooms": {"N":"r011","S":"r013","E":"NULL","W":"NULL"},
+		"adjRoomObstacles": {"N":"NULL","S":"o007_eye","E":"NULL","W":"NULL"},
+		"items": ["i006_trident"],
+		"characters": [],
+		"playerVisited": false,
+		"lookDescription": "Is this the deepest part of the temple?",
+		"entryCutscene": "Where's the eye?"
+	},
+  "r013": {
+		"name": "Boris' Haven",
+		"adjRooms": {"N":"r012","S":"r014","E":"NULL","W":"NULL"},
+		"adjRoomObstacles": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"},
+		"items": ["i007_violin","i008_octobass"],
+		"characters": [],
+		"playerVisited": false,
+		"lookDescription": "You see Boris in front of you",
+		"entryCutscene": "Can't we be friends?!"
+	},
+  "r014": {
+		"name": "Boris Box",
+		"adjRooms": {"N":"r013","S":"NULL","E":"NULL","W":"NULL"},
+		"adjRoomObstacles": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"},
+		"items": [],
+		"characters": [],
+		"playerVisited": false,
+		"lookDescription": "You are in Boris' Box.",
+		"entryCutscene": "How are we gonna get out of here..."
+	}
+}
