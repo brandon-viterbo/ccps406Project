@@ -32,6 +32,7 @@ boulder = gameClasses.Obstacle("o002_boulder")
 gate = gameClasses.Obstacle("o003_gate")
 arrows = gameClasses.Obstacle("o005_arrows")
 chasm = gameClasses.Obstacle("o006_chasm")
+eye = gameClasses.Obstacle("o007_eye")
 
 fish = gameClasses.Item("i010_fish")
 torch = gameClasses.Item("i000_torch")
@@ -46,6 +47,7 @@ gem = gameClasses.Item("i009_gem")
 
 pix = gameClasses.Character("c000_pix")
 marine = gameClasses.Character("c001_marine")
+boris = gameClasses.Character("c002_boris")
 
 pix.activeCharacter(1)
 playerCharacter = pix
@@ -84,11 +86,11 @@ def main():
         return playerCharacter.locationObject == villageSquare
     inputLoop(playerCharacter, movementTutorialEndCond)
 
-    def templeFirstLegEndCondtion():
+    def templeFirstLegEndCond():
         return ((pix.locationObject == templeChasm) and 
             (marine.locationObject == templeChasm) and
             (templeChasm.adjRoomObstacles["S"] == NULL_TAG))
-    inputLoop(playerCharacter, templeFirstLegEndCondtion)
+    inputLoop(playerCharacter, templeFirstLegEndCond)
     
     if fan.objID not in marine.inventory:
         marine.take(fan)
@@ -97,6 +99,25 @@ def main():
     print("\n")
     print("\n".join(chapters["chapter4"]))
     print("\n")
+
+    def epicentreEndCond():
+        return (pix.locationObject == eyeOfTheTemple and
+            marine.locationObject == eyeOfTheTemple)
+    inputLoop(playerCharacter, epicentreEndCond)
+    marine.take(trident)
+    marine.wield(trident)
+    marine.removeObstacle("STRIKE", eye)
+    pix.locationObject = borisHaven
+    pix.locationID = borisHaven.objID
+    marine.locationObject = borisHaven
+    marine.locationID = borisHaven.objID
+    borisHaven.characters.append(pix.objID)
+    borisHaven.characters.append(marine.objID)
+    print("\n".join(chapters["chapter5"]))
+
+    def placeHolder():
+        return False
+    inputLoop(playerCharacter, placeHolder)
 
 
 def inputLoop(playerCharacter, endCondFunc):

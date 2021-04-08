@@ -98,17 +98,17 @@
 	},
 
     "o007_eye": {
-		"name": "eye",
+		"name": "Eye Statue",
 		"unblockKeyword": "STRIKE",
 		"key": "i006_trident", 
 		"keyShouldBeActivated": false,
 		"strengthCheck": 20,
     	"weightCheck": 0,
 		"sizeCheck": 0,
-		"lookDescription": "A deep chasm lies in front of you.",
+		"lookDescription": "A big creepy Eye Statue.",
 		"messages": {
-			"blockedText": "A deep chasm lies in front of you.",
-			"unblockedText": "Pix glides across and lets down the drawbridge!"
+			"blockedText": "Nowhere to go.",
+			"unblockedText": "Marine threw the trident at the Eye Statue, a loud clang echoed in the room."
 		}
 	},
 

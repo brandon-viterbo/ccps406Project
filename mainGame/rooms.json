@@ -123,23 +123,23 @@
 	},
   "r012": {
 		"name": "Eye of The Temple",
-		"adjRooms": {"N":"r011","S":"r013","E":"NULL","W":"NULL"},
+		"adjRooms": {"N":"r011","S":"NULL","E":"NULL","W":"NULL"},
 		"adjRoomObstacles": {"N":"NULL","S":"o007_eye","E":"NULL","W":"NULL"},
 		"items": ["i006_trident"],
 		"characters": [],
 		"playerVisited": false,
-		"lookDescription": "Is this the deepest part of the temple?",
-		"entryCutscene": "Where's the eye?"
+		"lookDescription": "You had to descend many stairs to get here. This the deepest part of the temple. \nThere's a striking Eye Statue looking down on you.",
+		"entryCutscene": "'Blegh that eye's freaking me out.' Pix said. An ornately crafted trident catches Pix's and Marine's attention. \n'You just had a near death experience, lemme handle this room.'"
 	},
   "r013": {
 		"name": "Boris' Haven",
-		"adjRooms": {"N":"r012","S":"r014","E":"NULL","W":"NULL"},
+		"adjRooms": {"N":"NULL","S":"r014","E":"NULL","W":"NULL"},
 		"adjRoomObstacles": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"},
-		"items": ["i007_violin","i008_octobass"],
-		"characters": [],
+		"items": [],
+		"characters": ["c002_boris"],
 		"playerVisited": false,
-		"lookDescription": "You see Boris in front of you",
-		"entryCutscene": "Can't we be friends?!"
+		"lookDescription": "The room is filled with treasure from all around the world. Boris is right in front of you.",
+		"entryCutscene": ""
 	},
   "r014": {
 		"name": "Boris Box",
