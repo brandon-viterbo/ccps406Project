@@ -6,7 +6,6 @@
 		"keyShouldBeActivated": false,
 		"strengthCheck": 0,
     	"weightCheck": 0,
-		"sizeCheck": 0,
 		"lookDescription": "A locked and sturdy door is blocking the way east. There's a keyhole on it.",
 		"messages": {
 			"blockedText": "A door blocks the way here. There's a keyhole on it.",
@@ -21,7 +20,6 @@
 		"keyShouldBeActivated": true,
 		"strengthCheck": 0,
     	"weightCheck": 0,
-		"sizeCheck": 0,
 		"lookDescription": "A group of bats hanging from the cieling. They're very scary.",
 		"messages": {
 			"blockedText": "The bats attack anyone that tries to pass through. Maybe fire can scare them away...",
@@ -36,7 +34,6 @@
 		"keyShouldBeActivated": false,
 		"strengthCheck": 20,
     	"weightCheck": 0,
-		"sizeCheck": 0,
 		"lookDescription": "A boulder is in the way of the entrance to the other room.",
 		"messages": {
 			"blockedText": "A boulder is blocking that way, but a strong person can push it out of the way.",
@@ -51,26 +48,24 @@
 		"keyShouldBeActivated": false,
 		"strengthCheck": 0,
     	"weightCheck": 0,
-		"sizeCheck": 0,
-		"lookDescription": "A magnificent gate covered in gems blocks the way. It seems like one's missing though.",
+		"lookDescription": "A magnificent gate covered in gems blocks the way. It seems like one's missing though. Maybe that's a clue on how to unlock the gate...",
 		"messages": {
 			"blockedText": "A magnificent gate covered in gems blocks the way. It seems like one's missing though.",
 			"unblockedText": "The gate is unlocked, this way is open now!"
 		}
 	},
 
-  "o004_hole": {
+	"o004_hole": {
 		"name": "hole",
 		"unblockKeyword": "ENTER",
 		"key": "NULL", 
 		"keyShouldBeActivated": false,
 		"strengthCheck": 0,
-    	"weightCheck": 0,
-		"sizeCheck": 20,
-		"lookDescription": "A tiny hole leads into the next room. Someone small could fit through it.",
+    	"weightCheck": -16,
+		"lookDescription": "A tiny hole. Someone small can enter it.",
 		"messages": {
-			"blockedText": "The hole seems to be too small for you.",
-			"unblockedText": "You just barely fit into the hole. You can now go further west!"
+			"blockedText": "It's blocked. Besides where you came from, there's also a whole a small person can enter.",
+			"unblockedText": "You squeeze through the hole, and hit a button on the other side that opens the blocked entrance!"
 		}
 	},
 
@@ -81,26 +76,24 @@
 		"keyShouldBeActivated": false,
 		"strengthCheck": 0,
     	"weightCheck": 0,
-		"sizeCheck": 0,
 		"lookDescription": "A volley of arrows blocks the way past.",
 		"messages": {
 			"blockedText": "A volley of arrows blocks the way past.",
-			"unblockedText": "You rush through the volley blocking the arrows!"
+			"unblockedText": "The shield blocks the volley the arrows! You hit a button on the other side of the room and the arrows stop flying."
 		}
 	},
 
   "o006_chasm": {
 		"name": "chasm",
-		"unblockKeyword": "CROSS",
-		"key": "i004_fan", 
+		"unblockKeyword": "GLIDE",
+		"key": "i005_flag", 
 		"keyShouldBeActivated": false,
 		"strengthCheck": 0,
-    	"weightCheck": 0,
-		"sizeCheck": 20,
-		"lookDescription": "A deep chasm lies in front of you.",
+    	"weightCheck": -16,
+		"lookDescription": "A deep chasm with a powerful updraft lies in front of you. There might be an item around to help you glide across.",
 		"messages": {
-			"blockedText": "A deep chasm lies in front of you.",
-			"unblockedText": "Pix glides across and lets down the drawbridge!"
+			"blockedText": "An updraft pushes you back. Maybe you can use an item to glide across this chasm.",
+			"unblockedText": "Pix uses the flag like a glider to cross the chasm but doesn't have enough forward momentum, they're gonna fall!"
 		}
 	},
 

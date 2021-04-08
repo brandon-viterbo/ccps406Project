@@ -14,7 +14,7 @@
     "objAction": {
         "successfulText": "{} {} the {}.",
         "unsuccessfulText": "{} didn't {} the {}.",
-        "messageInvalid": "{} doesn't know how to {} the {}."
+        "messageInvalid": "{} doesn't know how to {} {}."
     },
 
   

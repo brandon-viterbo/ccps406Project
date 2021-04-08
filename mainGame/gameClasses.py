@@ -104,7 +104,7 @@ class Character():
                 self.locationObject.items.remove(item.objID)
                 return
             count += 1
-        print("{}'s is full.")
+        print("{}'s is full.".format(self.name))
 
 
     def displayInventory(self):
@@ -278,37 +278,55 @@ class Character():
         return
 
 
+    def skillCheck(self, obstacle):
+        res = True
+        if obstacle.strengthCheck < 0:
+            if -self.strength <= obstacle.strengthCheck:
+                print(skillCheckUnsuccessful.format(self.name, "strength"))
+                res = False   
+        elif self.strength <= obstacle.strengthCheck:
+            print(skillCheckUnsuccessful.format(self.name, "strength"))
+            res = False
+
+        if obstacle.weightCheck < 0:
+            if -self.weight <= obstacle.weightCheck:
+                print(skillCheckUnsuccessful.format(self.name, "weight"))
+                res = False    
+        elif self.weight <= obstacle.weightCheck:
+            print(skillCheckUnsuccessful.format(self.name, "weight"))
+            res = False
+
+        return res
+
+
     def removeObstacle(self, verb, obstacle):
         if obstacle.objID not in self.locationObject.adjRoomObstacles.values():
             print(singleActionUnsuccessful.format(self.name, "do that"))
             return
 
-        if self.strength <= obstacle.strengthCheck:
-            print(skillCheckUnsuccessful.format(self.name, "strength"))
+        if verb != obstacle.unblockKeyword:
+            print(objActionInvalid.format(self.name, verb, obstacle.name))
             return
-        elif self.strength <= obstacle.sizeCheck:
-            print(skillCheckUnsuccessful.format(self.name, "size"))
+
+        if self.skillCheck(obstacle) == False:
             return
-        elif (verb == obstacle.unblockKeyword) and (obstacle.key == NULL_TAG):
+        elif obstacle.key == NULL_TAG:
             # If the obstacle only require a skill check to remove
             print(obstacle.messages["unblockedText"])
             self.locationObject.removeObstacle(obstacle)
             return
 
-        if (verb == obstacle.unblockKeyword
-        ) and (obstacle.key != NULL_TAG):
-            # If removing obstacle also requires key
-            if (self.wieldedItem == obstacle.key) and (
-            not obstacle.keyShouldBeActivated):
-                print(obstacle.messages["unblockedText"])
-                self.locationObject.removeObstacle(obstacle)
-                return
-            elif (self.wieldedItem == obstacle.key) and (
-            obstacle.keyShouldBeActivated) and (
-            Item._registry[self.wieldedItem].activated):
-                print(obstacle.messages["unblockedText"])
-                self.locationObject.removeObstacle(obstacle)
-                return
+        if (self.wieldedItem == obstacle.key) and (
+        not obstacle.keyShouldBeActivated):
+            print(obstacle.messages["unblockedText"])
+            self.locationObject.removeObstacle(obstacle)
+            return
+        elif (self.wieldedItem == obstacle.key) and (
+        obstacle.keyShouldBeActivated) and (
+        Item._registry[self.wieldedItem].activated):
+            print(obstacle.messages["unblockedText"])
+            self.locationObject.removeObstacle(obstacle)
+            return
         print(objActionInvalid.format(self.name, verb, obstacle.name))
     
     
@@ -369,7 +387,7 @@ class Obstacle():
         self.key = thisObstacleData["key"] 
         self.keyShouldBeActivated = thisObstacleData["keyShouldBeActivated"]
         self.strengthCheck = thisObstacleData["strengthCheck"]
-        self.sizeCheck = thisObstacleData["sizeCheck"]
+        self.weightCheck = thisObstacleData["weightCheck"]
         self.messages = thisObstacleData["messages"]
         self.lookDescription = thisObstacleData["lookDescription"]
 

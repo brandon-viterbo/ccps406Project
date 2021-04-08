@@ -10,8 +10,7 @@
     		"angry": "Darn!"
     	},
     	"strength": 10,
-    	"weight": 20,
-      "size": 30,
+    	"weight": 15,
     	"inventory": ["NULL", "NULL", "NULL", "NULL", "NULL"],
       "party": ["NULL"],
     	"wieldedItem": "NULL",
@@ -29,7 +28,6 @@
         },
         "strength": 30,
         "weight": 30,
-        "size": 10,
         "inventory": ["NULL", "NULL", "NULL", "NULL", "NULL"],
         "party": ["NULL"],
         "wieldedItem": "NULL",

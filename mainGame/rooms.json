@@ -5,9 +5,9 @@
 		"adjRoomObstacles": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"},
 		"items": [],
 		"characters": [],
-		"playerVisited": true,
-		"lookDescription": "A peaceful beach on the shoreline",
-		"entryCutscene": "Pix thinks to themself, 'It sure is boring around here!'"
+		"playerVisited": false,
+		"lookDescription": "A peaceful beach on the shoreline. Pix's wrecked boat is still here.",
+		"entryCutscene": "Pix thinks to themself, 'I'll make it up to you Mr. Verlaine...'"
 	},
 
 	"r001": {
@@ -28,7 +28,7 @@
 		"characters": [],
 		"playerVisited": false,
 		"lookDescription": "Evergreen Island's village square. It looks lively today.",
-		"entryCutscene": "A villager approaches. 'Hey Marine! Who's this lil twerp!'\n Before Pix could shout at the villager, Marine stood between them and said, 'They're Pix, we're in a hurry. Sorry!'"
+		"entryCutscene": "A villager approaches. 'Hey Marine! Who's this lil twerp!'\nBefore Pix could shout at the villager, Marine stood between them and said, 'They're Pix, we're in a hurry. Sorry!'"
 	},
   "r003": {
 		"name": "Family Home",
@@ -37,7 +37,7 @@
 		"items": ["i010_fish"],
 		"characters": ["c000_pix","c001_marine"],
 		"playerVisited": false,
-		"lookDescription": "This is Marine's house. A quaint little house. You can see a beautiful, spacious valley behind it",
+		"lookDescription": "This is Marine's house. A quaint little house. You can see a beautiful, spacious valley behind it.",
 		"entryCutscene": "'Oh back so soon?' says Geoff."
 	},
   "r004": {
@@ -48,17 +48,17 @@
 		"characters": [],
 		"playerVisited": false,
 		"lookDescription": "A beautiful lake with deep blue water",
-		"entryCutscene": "Perfect for fishing!"
+		"entryCutscene": "'My ma and I would always go fishing here together.' Marine said.\n'Dad was always too busy drumming to some weird time signatures to fish with me.'"
 	},
   "r005": {
 		"name": "Temple Entrance",
 		"adjRooms": {"N":"r001","S":"r006","E":"NULL","W":"NULL"},
 		"adjRoomObstacles": {"N":"NULL","S":"o001_bats","E":"NULL","W":"NULL"},
-		"items": ["i000_torch","i001_stone"],
+		"items": ["i000_torch"],
 		"characters": [],
 		"playerVisited": false,
-		"lookDescription": "The temple looms in front of you",
-		"entryCutscene": "Kinda spooky!"
+		"lookDescription": "The temple looms in front of you. It looks old and sacred.",
+		"entryCutscene": "Boris is at the very top, spreading his wings and yawning. 'Gahh those bats are in our way!' Marine said.\n'Maybe we can scare 'em off with something here' Pix thinks aloud."
 	},
   "r006": {
 		"name": "Antechamber",
@@ -67,48 +67,49 @@
 		"items": [],
 		"characters": [],
 		"playerVisited": false,
-		"lookDescription": "A dark antechamber",
-		"entryCutscene": "Can't see!"
+		"lookDescription": "It's dark and dusty in here.",
+		"entryCutscene": "Pix and Marine cough a bunch."
 	},
   "r007": {
-		"name": "Antechamber A1",
+		"name": "Antechamber West Wing",
 		"adjRooms": {"N":"NULL","S":"NULL","E":"r006","W":"r008"},
 		"adjRoomObstacles": {"N":"NULL","S":"NULL","E":"NULL","W":"o004_hole"},
 		"items": [],
 		"characters": [],
 		"playerVisited": false,
-		"lookDescription": "You are in the first sub-room of the antechamber",
-		"entryCutscene": "Kinda spooky!"
+		"lookDescription": "The walls are covered in paintings depicting villagers worshipping Evergreen Island's deity.",
+		"entryCutscene": "'Don't tell my parents this but I'm not really religious.' Marine said. 'Duly noted!' Pix replies."
 	},
   "r008": {
-		"name": "Tiny Hole",
+		"name": "Cramped Chamber",
 		"adjRooms": {"N":"NULL","S":"NULL","E":"r007","W":"NULL"},
 		"adjRoomObstacles": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"},
 		"items": ["i003_key"],
 		"characters": [],
 		"playerVisited": false,
-		"lookDescription": "You enter the small hole and notice a key on the ground.",
-		"entryCutscene": "Tight Squeeze!"
+		"lookDescription": "A bit of a squeeze but you barely manage to fit in.",
+		"entryCutscene": "'Personal space?'\n'Sorry!'"
 	},
   "r009": {
-		"name": "Antechamber A2",
+		"name": "Antechamber East Wing",
 		"adjRooms": {"N":"NULL","S":"NULL","E":"NULL","W":"r006"},
 		"adjRoomObstacles": {"N":"NULL","S":"NULL","E":"NULL","W":"o002_boulder"},
 		"items": ["i009_gem"],
 		"characters": [],
 		"playerVisited": false,
-		"lookDescription": "You are in the second sub-room of the antechamber. As you enter a large boulder falls down and blocks the door you just came through!",
-		"entryCutscene": "Kinda spooky!"
+		"lookDescription": "A painting on a wall shows a strongman pushing boulders in front of a crowd. What a show off!",
+		"entryCutscene": "A large boulder falls down and blocks the door you just came through!\n'Pix what happened?!' Marine shouted."
 	},
-  "r010": {
+
+    "r010": {
 		"name": "Temple Arrow Room",
 		"adjRooms": {"N":"r006","S":"r011","E":"NULL","W":"NULL"},
 		"adjRoomObstacles": {"N":"NULL","S":"o005_arrows","E":"NULL","W":"NULL"},
 		"items": ["i002_shield"],
 		"characters": [],
 		"playerVisited": false,
-		"lookDescription": "As you enter the room, a volley of arrows begins flying across the hallway. It is impossible to pass without blocking the arrows!",
-		"entryCutscene": " You see a skeleton with a shield lying on the ground before you. Must have been the last poor soul to enter here..."
+		"lookDescription": "As you enter the room, a volley of arrows begins flying across the hallway. You have to block the arrows!",
+		"entryCutscene": " You see a skeleton with a shield lying on the ground before you. Some arrows are stuck on the shield. Must have been the last poor soul to enter here..."
 	},
   "r011": {
 		"name": "Temple Chasm",
@@ -118,7 +119,7 @@
 		"characters": [],
 		"playerVisited": false,
 		"lookDescription": "A deep chasm. There's a drawbridge leading across, but the controls are on the other side! A heavy breeze blows from below",
-		"entryCutscene": "How can we get across!"
+		"entryCutscene": "'Ooooooohhh, windy up in here!' Marine said."
 	},
   "r012": {
 		"name": "Eye of The Temple",

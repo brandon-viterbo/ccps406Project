@@ -1,5 +1,13 @@
 {
 	"chapter1": [
+		".",
+		"..",
+		"...",
+		"Welcome to...",
+		"The Temple of Boris",
+		"...",
+		"..",
+		".\n\n",
 		"Up on a hill is where we begin, this little story a long time ago...",
 		"Our little hero Pix was sitting under the shade of a mighty oak. They saw the clouds drifting along the vast blue sky and decided they wanted to sail the ocean.",
 		"It was all a whirlwind, heat, and flash. Within a week, they pickpocketed money from Mr. Verlaine, the owner of Galekeep Island Bar, bought a dinghy, and set sail.",
@@ -25,7 +33,7 @@
 		"'Well what are we waiting for let's go!' Pix shouted.\n"
 	],
 	"chapter2": [
-		"'Wow now before that we got a problem.' Geoff said, 'Our cat Alfredo is blocking the door. He's probably cranky because we can't find the fish I caught for him this morning.'",
+		"'Wow now before that we got a problem.' Geoff said, 'Our cat Alfredo is blocking the door. He's probably cranky because we can't find the fish Beth caught for him this morning.'",
 		"'Pix, can you help us 'look' for the fish? If you see it, 'take' it, 'wield' it, then 'feed' Alfredo.' Beth said.",
 		"'It's the only way outta here!' Marine exclaimed.",
 		"'...' Adrian smiled at Alfredo.",
@@ -33,9 +41,16 @@
 	],
 	"chapter3": [
 		"'Ah the door's open now! Let's get outta here!' Marine says.",
-		"'Oh by the way Pix, just think the word 'inventory' to yourself to keep track of what items you have. You don't have the fish anymore now that Alfredo ate it.",
-		"Geoff interjects, 'Remember Pix, if you wanna move just think of a cardinal direction. 'N', 'S', 'E', 'W'...'",
+		"'Oh by the way Pix, just think the word 'inventory' to yourself to keep track of what items you have. You don't have the fish anymore now that Alfredo ate it.'",
+		"'And we're gonna be on this journey together. If you need me to do something, call my name. I'll respond and you can tell me what to do.'",
+		"Geoff interjects, 'Remember Pix, if you wanna move just think of a cardinal direction. 'N', 'S', 'E', 'W'...''",
 		"Beth sings, 'Never eat soggy waffles! Now off you go to the temple!'\n"
+	],
+	"chapter4": [
+		"Marine opens the fan and waves at Pix, barely pushing them to the otherside of the room.",
+		"Pix landed with a gentle thud, then pressed a button on the other side which summoned a bridge over the chasm. Marine crossed it.",
+		"'Thanks I owe you one! I know a bar back on Galekeep your family can gig in when we get outta here.' Pix said.",
+		"'Cool but let's try to stay alive.' Marine replied."
 	]
 
 }

@@ -14,20 +14,6 @@
   		"activated": false
 	},
 
-	"i001_stone" : {
-		"name": "stone",
-    "activateWord": "NULL",
-    "deactivateWord": "NULL",
-    "lookDescription": "A rough stone. You could throw it at something.",
-		"messages": {
-    		"itemInvalid": "NULL",
-    		"itemActivated": "NULL",
-    		"itemDeactivated": "NULL"
-  		},
-  		"weight": 1,
-  		"activated": false
-	},
-
   "i002_shield" : {
 		"name": "shield",
     "activateWord": "NULL",
@@ -66,7 +52,7 @@
     		"itemActivated": "NULL",
     		"itemDeactivated": "NULL"
   		},
-  		"weight": 1,
+  		"weight": 20,
   		"activated": false
 	},
 
