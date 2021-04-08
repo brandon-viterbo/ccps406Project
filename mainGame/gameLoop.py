@@ -1,5 +1,6 @@
 import gameClasses
 import json
+import time
 
 NULL_TAG = "NULL"
 CHAPTERS = "chapters.json"
@@ -22,7 +23,6 @@ templeArrowRoom = gameClasses.Room("r010")
 templeChasm = gameClasses.Room("r011")
 eyeOfTheTemple = gameClasses.Room("r012")
 borisHaven = gameClasses.Room("r013")
-borisBox = gameClasses.Room("r014")
 
 alfredo = gameClasses.Obstacle("o008_alfredo")
 door = gameClasses.Obstacle("o000_door")
@@ -92,7 +92,8 @@ def main():
             (templeChasm.adjRoomObstacles["S"] == NULL_TAG))
     inputLoop(playerCharacter, templeFirstLegEndCond)
     
-    if fan.objID not in marine.inventory:
+    time.sleep(3)
+    if fan.objID in templeChasm.items:
         marine.take(fan)
     if fan.objID != marine.wieldedItem:
         marine.wield(fan)
@@ -104,20 +105,43 @@ def main():
         return (pix.locationObject == eyeOfTheTemple and
             marine.locationObject == eyeOfTheTemple)
     inputLoop(playerCharacter, epicentreEndCond)
+
     marine.take(trident)
     marine.wield(trident)
     marine.removeObstacle("STRIKE", eye)
+    print("\n".join(chapters["pause"]))
+    time.sleep(3)
+    eyeOfTheTemple.characters.remove(pix.objID)
+    eyeOfTheTemple.characters.remove(marine.objID)
     pix.locationObject = borisHaven
     pix.locationID = borisHaven.objID
     marine.locationObject = borisHaven
     marine.locationID = borisHaven.objID
     borisHaven.characters.append(pix.objID)
     borisHaven.characters.append(marine.objID)
+    time.sleep(3)
     print("\n".join(chapters["chapter5"]))
+    boris.drop(violin)
+    boris.drop(octobass)
 
-    def placeHolder():
-        return False
-    inputLoop(playerCharacter, placeHolder)
+    def finale():
+        return (pix.wieldedItem == violin.objID and
+            violin.activated == True)
+    inputLoop(playerCharacter, finale)
+    time.sleep(3)
+    print("\n".join(chapters["chapter6"]))
+    time.sleep(3)
+    if octobass.objID in borisHaven.items:
+        marine.take(octobass)
+    if marine.wieldedItem != octobass.objID:
+        marine.wield(octobass)
+    if not octobass.activated:
+        marine.activate("PLAY", octobass)
+    pix.activate("STOP", violin)
+    marine.activate("STOP", octobass)
+    print("\n".join(chapters["pause"]))
+    time.sleep(3) 
+    print("\n".join(chapters["finale"]))
 
 
 def inputLoop(playerCharacter, endCondFunc):

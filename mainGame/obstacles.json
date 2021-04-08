@@ -64,7 +64,7 @@
     	"weightCheck": -16,
 		"lookDescription": "A tiny hole. Someone small can enter it.",
 		"messages": {
-			"blockedText": "It's blocked. Besides where you came from, there's also a whole a small person can enter.",
+			"blockedText": "It's blocked. Besides where you came from, there's also a hole a small person can enter.",
 			"unblockedText": "You squeeze through the hole, and hit a button on the other side that opens the blocked entrance!"
 		}
 	},

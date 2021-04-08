@@ -52,19 +52,31 @@
 		"'Thanks I owe you one! I know a bar back on Galekeep your family can gig in when we get outta here.' Pix said.",
 		"'Cool but let's try to stay alive.' Marine replied."
 	],
+	"pause": ["...","...","..."],
 	"chapter5": [
-		"...",
-		"...",
-		"...",
 		"Pix and Marine suddenly heard a rumbling. 'Quick grab on!'",
 		"Marine and Pix take hold of a large hunk of wood lying in the room as the Eye Statue start gushing out water.",
 		"Enough water fills the room that it starts lifting up Pix and Marine higher and higher until they burst through the top of the temple.\n",
 		"Marine entered Boris' Haven.",
 		"Pix entered Boris' Haven.",
 		"The room is filled with treasure from all around the world. Boris is right in front of you.",
-		"Oooh now what do we have here?",
+		"'Oooh now what do we have here?' he says.",
 		"This room has: Boris, Pix, and Marine.",
-		"From here you can go: S."
+		"From here you can go: Nowhere.\n",
+		"'We want you to fly me, Pix, and my family outta this island!'",
+		"'I wanna go home...'",
+		"'I wanna share my family's music with the world!'",
+		"'Music?' Boris started. 'I've lived for many centuries and never listened to it. I've heard so much about it. Can you play for me?'\n"
+	],
+	"chapter6": [
+		"'I know how to play the violin. My parents taught me but I always thought it was dorky, I just want outta here!'",
+		"'Let's hear your chops then!' Marine shouted.\n"
+	],
+	"finale": [
+		"That was beautiful, I wanna help you share this music with the rest of the world too!",
+		"And with that, Pix and Marine got on Boris' back and he flew to Marine's home. The village gave the family a tearful farewell. And off they went to Galekeep Island",
+		"\n\n",
+		"THE END"
 	]
 
 }

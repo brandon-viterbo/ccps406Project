@@ -133,22 +133,12 @@
 	},
   "r013": {
 		"name": "Boris' Haven",
-		"adjRooms": {"N":"NULL","S":"r014","E":"NULL","W":"NULL"},
+		"adjRooms": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"},
 		"adjRoomObstacles": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"},
 		"items": [],
 		"characters": ["c002_boris"],
 		"playerVisited": false,
 		"lookDescription": "The room is filled with treasure from all around the world. Boris is right in front of you.",
 		"entryCutscene": ""
-	},
-  "r014": {
-		"name": "Boris Box",
-		"adjRooms": {"N":"r013","S":"NULL","E":"NULL","W":"NULL"},
-		"adjRoomObstacles": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"},
-		"items": [],
-		"characters": [],
-		"playerVisited": false,
-		"lookDescription": "You are in Boris' Box.",
-		"entryCutscene": "How are we gonna get out of here..."
 	}
 }

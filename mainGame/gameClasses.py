@@ -147,6 +147,9 @@ class Character():
         if charName.objID not in self.locationObject.characters:
             print("That character can't join you right now.")
             return 
+        if charName.objID in self.party:
+            print("{} is already in {}'s party.".format(charName.name, self.name))
+            return
 
         selfIndex = -1
         charIndex = -1
