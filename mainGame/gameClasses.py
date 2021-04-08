@@ -262,14 +262,14 @@ class Character():
         self.locationObject = nextRoomObject
         self.locationID = nextobjID
         self.locationObject.characters.append(self.objID)
+        print(enteringRoomSuccessful.format(self.name, self.locationObject.name))
 
-        if self.playerCharacter:
-            for i in self.party:
-                if i != NULL_TAG:
-                    member = Character._registry[i]
+        for i in self.party:
+            if i != NULL_TAG:
+                member = Character._registry[i]
+                if member.locationObject != self.locationObject:
                     member.move(direction)
 
-        print(enteringRoomSuccessful.format(self.name, self.locationObject.name))
         if self.locationObject.playerVisited == False and self.playerCharacter:
             print(self.locationObject.lookDescription)
             print(self.locationObject.entryCutscene)

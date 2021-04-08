@@ -3,7 +3,7 @@
         "name": "Pix",
         "lookDescription": "They're a little, adventurous kid.",
     	  "dialogue": {
-    		    "happy": "We did it!",
+    		    "happy": "Hey!",
     		    "concerned": "Watch out!",
     		    "idle": "Shoulda brought a book.",
     		    "focused": "There's gotta be a way outta this.",
@@ -21,7 +21,7 @@
         "name": "Marine",
         "lookDescription": "She looks like a big and strong woman.",
         "dialogue": {
-          "happy": "We did it!",
+          "happy": "What's up?",
           "concerned": "Watch out!",
           "idle": "Shoulda brought a book.",
           "focused": "There's gotta be a way outta this.",
@@ -39,7 +39,7 @@
         "name": "Boris",
         "lookDescription": "An intimidating dragon with jet black scales.",
         "dialogue": {
-          "happy": "Oooh?",
+          "happy": "...",
           "concerned": "Hmmm...",
           "idle": "...",
           "focused": "!!!",

@@ -167,7 +167,7 @@ def inputLoop(playerCharacter, endCondFunc):
                     playerCharacter.activate(inputArgs[0], item)
             elif obstacle != None:
                 playerCharacter.removeObstacle(inputArgs[0], obstacle)
-            elif character != None:
+            elif inputArgs[0] in CHARACTER_COMMANDS and character != None:
                 CHARACTER_COMMANDS[inputArgs[0]](character)
             else:
                 print(gameClasses.objActionInvalid.format(
@@ -190,7 +190,9 @@ def verifyObject(C, inputName):
 
 
 def shiftPlayerControl(playerCharacter, character):
-    if character.objID not in playerCharacter.party:
+    if playerCharacter.objID == character.objID:
+        print("{} wondered what they should do.".format(playerCharacter.name))
+    elif character.objID not in playerCharacter.party:
         print("{} is not in {}'s party.".format(
             character.name, playerCharacter.name))
     else:
