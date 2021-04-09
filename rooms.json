@@ -1,0 +1,144 @@
+{
+	"r000": {
+		"name": "Shore",
+		"adjRooms": {"N":"NULL","S":"r001","E":"r002","W":"NULL"},
+		"adjRoomObstacles": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"},
+		"items": [],
+		"characters": [],
+		"playerVisited": false,
+		"lookDescription": "A peaceful beach on the shoreline. Pix's wrecked boat is still here.",
+		"entryCutscene": "Pix thinks to themself, 'I'll make it up to you Mr. Verlaine...'"
+	},
+
+	"r001": {
+		"name": "Valley",
+		"adjRooms": {"N":"r000","S":"r005","E":"NULL","W":"r004"},
+		"adjRoomObstacles": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"},
+		"items": [],
+		"characters": [],
+		"playerVisited": false,
+		"lookDescription": "A large valley, looking south you can see a large temple.",
+		"entryCutscene": "There are no valleys like this on Galekeep Island. 'This valley stretches on forever!' Pix says."
+	},
+  "r002": {
+		"name": "Village Square",
+		"adjRooms": {"N":"NULL","S":"r003","E":"NULL","W":"r000"},
+		"adjRoomObstacles": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"},
+		"items": [],
+		"characters": [],
+		"playerVisited": false,
+		"lookDescription": "Evergreen Island's village square. It looks lively today.",
+		"entryCutscene": "A villager approaches. 'Hey Marine! Who's this lil twerp!'\nBefore Pix could shout at the villager, Marine stood between them and said, 'They're Pix, we're in a hurry. Sorry!'"
+	},
+  "r003": {
+		"name": "Family Home",
+		"adjRooms": {"N":"r002","S":"NULL","E":"NULL","W":"NULL"},
+		"adjRoomObstacles": {"N":"o008_alfredo","S":"NULL","E":"NULL","W":"NULL"},
+		"items": ["i010_fish"],
+		"characters": ["c000_pix","c001_marine"],
+		"playerVisited": false,
+		"lookDescription": "This is Marine's house. A quaint little house. You can see a beautiful, spacious valley behind it.",
+		"entryCutscene": "'Oh back so soon?' says Geoff."
+	},
+  "r004": {
+		"name": "Lake",
+		"adjRooms": {"N":"NULL","S":"NULL","E":"r001","W":"NULL"},
+		"adjRoomObstacles": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"},
+		"items": [],
+		"characters": [],
+		"playerVisited": false,
+		"lookDescription": "A beautiful lake with deep blue water",
+		"entryCutscene": "'My ma and I would always go fishing here together.' Marine said.\n'Dad was always too busy drumming to some weird time signatures to fish with me.'"
+	},
+  "r005": {
+		"name": "Temple Entrance",
+		"adjRooms": {"N":"r001","S":"r006","E":"NULL","W":"NULL"},
+		"adjRoomObstacles": {"N":"NULL","S":"o001_bats","E":"NULL","W":"NULL"},
+		"items": ["i000_torch"],
+		"characters": [],
+		"playerVisited": false,
+		"lookDescription": "The temple looms in front of you. It looks old and sacred.",
+		"entryCutscene": "Boris is at the very top, spreading his wings and yawning. 'Gahh those bats are in our way!' Marine said.\n'Maybe we can scare 'em off with something here' Pix thinks aloud."
+	},
+  "r006": {
+		"name": "Antechamber",
+		"adjRooms": {"N":"r005","S":"r010","E":"r009","W":"r007"},
+		"adjRoomObstacles": {"N":"NULL","S":"o003_gate","E":"o000_door","W":"NULL"},
+		"items": [],
+		"characters": [],
+		"playerVisited": false,
+		"lookDescription": "It's dark and dusty in here.",
+		"entryCutscene": "Pix and Marine cough a bunch."
+	},
+  "r007": {
+		"name": "Antechamber West Wing",
+		"adjRooms": {"N":"NULL","S":"NULL","E":"r006","W":"r008"},
+		"adjRoomObstacles": {"N":"NULL","S":"NULL","E":"NULL","W":"o004_hole"},
+		"items": [],
+		"characters": [],
+		"playerVisited": false,
+		"lookDescription": "The walls are covered in paintings depicting villagers worshipping Evergreen Island's deity.",
+		"entryCutscene": "'Don't tell my parents this but I'm not really religious.' Marine said. 'Duly noted!' Pix replies."
+	},
+  "r008": {
+		"name": "Cramped Chamber",
+		"adjRooms": {"N":"NULL","S":"NULL","E":"r007","W":"NULL"},
+		"adjRoomObstacles": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"},
+		"items": ["i003_key"],
+		"characters": [],
+		"playerVisited": false,
+		"lookDescription": "A bit of a squeeze but you barely manage to fit in.",
+		"entryCutscene": "'Personal space?'\n'Sorry!'"
+	},
+  "r009": {
+		"name": "Antechamber East Wing",
+		"adjRooms": {"N":"NULL","S":"NULL","E":"NULL","W":"r006"},
+		"adjRoomObstacles": {"N":"NULL","S":"NULL","E":"NULL","W":"o002_boulder"},
+		"items": ["i009_gem"],
+		"characters": [],
+		"playerVisited": false,
+		"lookDescription": "A painting on a wall shows a strongman pushing boulders in front of a crowd. What a show off!",
+		"entryCutscene": "A large boulder falls down and blocks the door you just came through!\n'Pix what happened?!' Marine shouted."
+	},
+
+    "r010": {
+		"name": "Temple Arrow Room",
+		"adjRooms": {"N":"r006","S":"r011","E":"NULL","W":"NULL"},
+		"adjRoomObstacles": {"N":"NULL","S":"o005_arrows","E":"NULL","W":"NULL"},
+		"items": ["i002_shield"],
+		"characters": [],
+		"playerVisited": false,
+		"lookDescription": "As you enter the room, a volley of arrows begins flying across the hallway. You have to block the arrows!",
+		"entryCutscene": " You see a skeleton with a shield lying on the ground before you. Some arrows are stuck on the shield. Must have been the last poor soul to enter here..."
+	},
+  "r011": {
+		"name": "Temple Chasm",
+		"adjRooms": {"N":"r010","S":"r012","E":"NULL","W":"NULL"},
+		"adjRoomObstacles": {"N":"NULL","S":"o006_chasm","E":"NULL","W":"NULL"},
+		"items": ["i004_fan","i005_flag"],
+		"characters": [],
+		"playerVisited": false,
+		"lookDescription": "A deep chasm. There's a drawbridge leading across, but the controls are on the other side! A heavy breeze blows from below",
+		"entryCutscene": "'Ooooooohhh, windy up in here!' Marine said."
+	},
+  "r012": {
+		"name": "Eye of The Temple",
+		"adjRooms": {"N":"r011","S":"NULL","E":"NULL","W":"NULL"},
+		"adjRoomObstacles": {"N":"NULL","S":"o007_eye","E":"NULL","W":"NULL"},
+		"items": ["i006_trident"],
+		"characters": [],
+		"playerVisited": false,
+		"lookDescription": "You had to descend many stairs to get here. This the deepest part of the temple. \nThere's a striking Eye Statue looking down on you.",
+		"entryCutscene": "'Blegh that eye's freaking me out.' Pix said. An ornately crafted trident catches Pix's and Marine's attention. \n'You just had a near death experience, lemme handle this room.'"
+	},
+  "r013": {
+		"name": "Boris' Haven",
+		"adjRooms": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"},
+		"adjRoomObstacles": {"N":"NULL","S":"NULL","E":"NULL","W":"NULL"},
+		"items": [],
+		"characters": ["c002_boris"],
+		"playerVisited": false,
+		"lookDescription": "The room is filled with treasure from all around the world. Boris is right in front of you.",
+		"entryCutscene": ""
+	}
+}
